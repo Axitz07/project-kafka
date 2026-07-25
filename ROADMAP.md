@@ -12,12 +12,14 @@
 - [x] Setup Tailwind CSS v4 dengan `@tailwindcss/vite`
 - [x] Design system — token warna dark luxury (void black, deep purple, lightning pink)
 - [x] Global styles dengan glow utilities (`glow-purple`, `glow-text`, `glow-lightning`)
-- [x] `NavBar` — responsive, mobile menu, Stellaron Hunters badge, lightning logo
-- [x] `HeroSection` — cinematic full-screen, floating orbs, faction badge, quote Kafka
-- [x] `ProfileSection` — identity card dengan base stats bars dan rarity stars
-- [x] `SkillsSection` — skill cards dengan type badge, light cone tier list, relic guide
+- [x] `NavBar` — scroll-aware, animated underline, element/path badge, smooth mobile menu
+- [x] `HeroSection` — full-bleed foto asli, parallax mouse tracking, lightning streak animation, editorial typography
+- [x] `ProfileSection` — tabbed (Lore/Stats/Traits), offset photo card, Spirit Whisper lore, voice actor info
+- [x] `SkillsSection` — interactive hover cards, gameplay loop timeline, stat priority, common mistakes section
 - [x] `FooterSection` — brand footer dengan element, path, dan rarity info
 - [x] `src/data/kafka.js` — data lengkap: stats, skills, light cones, relics, lore facts
+- [x] Assets foto Kafka (`kafka-1` s/d `kafka-9`) diintegrasikan ke UI
+- [x] Deploy ke GitHub Pages (`https://axitz07.github.io/project-kafka/`)
 
 ---
 
