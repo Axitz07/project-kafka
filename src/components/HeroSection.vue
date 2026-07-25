@@ -81,14 +81,14 @@ onUnmounted(() => window.removeEventListener('mousemove', onMove))
           ? 'opacity:1; transform:translateY(0)'
           : 'opacity:0; transform:translateY(28px)'"
       >
-        <!-- Eyebrow — plain text, no badge/emoji -->
-        <p class="text-[11px] tracking-[0.55em] uppercase font-mono text-[#7a5098] mb-7 leading-none">
-          Honkai&thinsp;:&thinsp;Star&thinsp;Rail&ensp;—&ensp;Stellaron&thinsp;Hunters
+        <!-- Eyebrow -->
+        <p class="text-xs tracking-[0.45em] uppercase font-mono text-[#7a5098] mb-8 leading-none">
+          Honkai: Star Rail — Stellaron Hunters
         </p>
 
         <!-- Name — editorial, dominant -->
         <h1
-          class="leading-[.88] font-black select-none mb-6"
+          class="leading-[.88] font-black select-none mb-7"
           style="
             font-family: 'Georgia','Times New Roman',serif;
             font-size: clamp(5.5rem, 19vw, 14rem);
@@ -98,30 +98,26 @@ onUnmounted(() => window.removeEventListener('mousemove', onMove))
           "
         >Kafka</h1>
 
-        <!-- Quote -->
+        <!-- Quote — bigger, more legible -->
         <p
-          class="text-[#8b7aa0] text-sm leading-relaxed mb-12 max-w-xs"
+          class="text-[#9b8cb4] text-base leading-relaxed mb-14 max-w-sm"
           style="font-style:italic;"
         >"You won't remember a thing except me."</p>
 
         <!-- Two actions -->
         <div class="flex items-center gap-10">
-          <a
-            href="#profile"
-            class="group flex items-center gap-3"
-          >
+          <a href="#profile" class="group flex items-center gap-3">
             <span
               class="block h-px bg-[#7c3aed]/60 transition-all duration-500 group-hover:w-12 group-hover:bg-[#b07aee]"
               style="width:24px;"
             ></span>
-            <span class="text-[11px] tracking-[.35em] uppercase font-mono text-[#c4a8e0] group-hover:text-white transition-colors duration-300">
+            <span class="text-xs tracking-[.35em] uppercase font-mono text-[#c4a8e0] group-hover:text-white transition-colors duration-300">
               Character
             </span>
           </a>
-          <a
-            href="#skills"
-            class="text-[11px] tracking-[.35em] uppercase font-mono text-[#5a4870] hover:text-[#9b7fc4] transition-colors duration-300"
-          >Build Guide</a>
+          <a href="#skills" class="text-xs tracking-[.35em] uppercase font-mono text-[#5a4870] hover:text-[#9b7fc4] transition-colors duration-300">
+            Build Guide
+          </a>
         </div>
       </div>
 

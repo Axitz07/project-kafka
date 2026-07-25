@@ -26,12 +26,12 @@ const links = [
     <div class="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
 
       <!-- Wordmark -->
-      <a href="#" class="flex items-center gap-2 group">
+      <a href="#" class="flex items-center gap-3 group">
         <span
-          class="text-[#f0e8ff] font-black tracking-tight text-lg select-none"
+          class="text-[#f0e8ff] font-black tracking-tight text-xl select-none"
           style="font-family:'Georgia',serif; letter-spacing:-0.02em;"
         >Kafka</span>
-        <span class="text-[#4a3a5e] text-sm font-mono tracking-widest select-none">/ 5★</span>
+        <span class="text-[#4a3a5e] text-sm font-mono tracking-widest select-none hidden md:block">5★</span>
       </a>
 
       <!-- Desktop nav -->
@@ -39,12 +39,12 @@ const links = [
         <a
           v-for="l in links" :key="l.href"
           :href="l.href"
-          class="px-4 py-2 text-[11px] tracking-[0.3em] uppercase font-mono text-[#7a6890] hover:text-[#f0e8ff] transition-colors duration-200"
+          class="px-4 py-2 text-xs tracking-[0.25em] uppercase font-mono text-[#7a6890] hover:text-[#f0e8ff] transition-colors duration-200"
         >{{ l.label }}</a>
       </nav>
 
-      <!-- Faction tag -->
-      <span class="hidden md:block text-[10px] tracking-[0.4em] uppercase font-mono text-[#4a3a5e]">
+      <!-- Faction tag — right side -->
+      <span class="hidden md:block text-xs tracking-[0.35em] uppercase font-mono text-[#4a3a5e]">
         Stellaron Hunters
       </span>
 
