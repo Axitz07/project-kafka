@@ -13,7 +13,9 @@
 - [x] Design system — token warna dark luxury (void black, deep purple, lightning pink)
 - [x] Global styles dengan glow utilities (`glow-purple`, `glow-text`, `glow-lightning`)
 - [x] `NavBar` — scroll-aware, animated underline, element/path badge, smooth mobile menu
-- [x] `HeroSection` — full-bleed foto asli, parallax mouse tracking, lightning streak animation, editorial typography
+- [x] `HeroSection` — revamp total: foto bleeding full, layout photographic editorial, teks kiri bawah, stats inline, no gimmicks
+- [x] Cleanup: hapus `HelloWorld.vue`, update page title ke "Kafka — Stellaron Hunters"
+- [x] Fix image paths dengan `import.meta.env.BASE_URL` untuk dev + production
 - [x] `ProfileSection` — tabbed (Lore/Stats/Traits), offset photo card, Spirit Whisper lore, voice actor info
 - [x] `SkillsSection` — interactive hover cards, gameplay loop timeline, stat priority, common mistakes section
 - [x] `FooterSection` — brand footer dengan element, path, dan rarity info
