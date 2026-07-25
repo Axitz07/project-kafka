@@ -9,33 +9,38 @@
 
 - [x] Setup proyek (Vue 3 + Vite)
 - [x] Struktur folder dasar
+- [x] Setup Tailwind CSS v4 dengan `@tailwindcss/vite`
+- [x] Design system — token warna dark luxury (void black, deep purple, lightning pink)
+- [x] Global styles dengan glow utilities (`glow-purple`, `glow-text`, `glow-lightning`)
+- [x] `NavBar` — responsive, mobile menu, Stellaron Hunters badge, lightning logo
+- [x] `HeroSection` — cinematic full-screen, floating orbs, faction badge, quote Kafka
+- [x] `ProfileSection` — identity card dengan base stats bars dan rarity stars
+- [x] `SkillsSection` — skill cards dengan type badge, light cone tier list, relic guide
+- [x] `FooterSection` — brand footer dengan element, path, dan rarity info
+- [x] `src/data/kafka.js` — data lengkap: stats, skills, light cones, relics, lore facts
 
 ---
 
 ## 🔄 Sedang Dikerjakan
 
-- [ ] Setup Tailwind CSS v4
-- [ ] Desain sistem warna & tipografi (tema ungu gelap Kafka)
-- [ ] Layout dasar halaman utama
+- [ ] Polish responsivitas mobile semua section
+- [ ] Pengisian konten lore & trivia di `kafka.js`
 
 ---
 
 ## 📌 Backlog — Prioritas Tinggi
 
-### 🎨 Fondasi UI/UX
-- [ ] **Design system** — token warna, spacing, font yang konsisten sesuai vibes Kafka
-- [ ] **HeroSection** — splash art full-screen dengan parallax + teks animasi
-- [ ] **NavBar** — navigasi smooth ke setiap section
-- [ ] **Efek visual** — partikel petir, glow ungu, background animasi
-- [ ] **Responsif mobile** — semua section nyaman di layar kecil
+### 🎨 UI/UX Lanjutan
+- [ ] **Efek visual** — partikel petir, animasi lightning saat hover elemen tertentu
+- [ ] **Cursor custom** — bergaya Kafka (petir / ungu)
+- [ ] **Animasi masuk** — section reveal saat scroll (intersection observer)
+- [ ] **Responsif mobile** — polish layout semua section di layar kecil
 
-### 📋 Konten Karakter
-- [ ] **ProfileCard** — info dasar: nama, afiliasi, elemen (Lightning), path (Nihility)
-- [ ] **SkillsSection** — deskripsi Basic ATK, Skill, Ultimate, Talent, Technique + Eidolon 1–6
-- [ ] **BuildGuide** — rekomendasi Light Cone, Relic set, stat priority, team comp
+### 📋 Konten Karakter (Lanjutan)
+- [ ] **Eidolon section** — deskripsi dan efek tiap eidolon (E1–E6)
 - [ ] **LoreSection** — background story, role di Stellaron Hunters, hubungan dengan karakter lain
 - [ ] **GallerySection** — splash art, character art, in-game screenshots (lightbox)
-- [ ] **Trivia** — fakta dan detail unik tentang Kafka
+- [ ] **Trivia** — fakta dan detail unik tentang Kafka (data sudah ada di `kafka.js`)
 
 ---
 
@@ -55,9 +60,9 @@
 | Versi | Target | Deskripsi |
 |-------|--------|-----------|
 | v0.1 | ✅ Done | Setup proyek |
-| v0.2 | Sekarang | Design system + HeroSection |
-| v0.3 | TBD | Semua section konten karakter selesai |
-| v0.4 | TBD | Galeri + efek visual premium |
+| v0.2 | ✅ Done | Tailwind CSS, design system, NavBar, HeroSection, ProfileSection, SkillsSection |
+| v0.3 | Sekarang | Eidolon, LoreSection, polish mobile, animasi scroll |
+| v0.4 | TBD | GallerySection, efek visual premium (partikel, cursor custom) |
 | v1.0 | TBD | Full launch, mobile-ready, deploy |
 
 ---
