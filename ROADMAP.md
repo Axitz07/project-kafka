@@ -12,12 +12,12 @@
 - [x] Setup Tailwind CSS v4 dengan `@tailwindcss/vite`
 - [x] Design system — token warna dark luxury (void black, deep purple, lightning pink)
 - [x] Global styles dengan glow utilities (`glow-purple`, `glow-text`, `glow-lightning`)
-- [x] `NavBar` — scroll-aware, animated underline, element/path badge, smooth mobile menu
-- [x] `HeroSection` — revamp total: foto bleeding full, layout photographic editorial, teks kiri bawah, stats inline, no gimmicks
-- [x] Cleanup: hapus `HelloWorld.vue`, update page title ke "Kafka — Stellaron Hunters"
+- [x] `NavBar` — scroll-aware, clean wordmark tanpa emoji, mobile hamburger menu
+- [x] `HeroSection` — foto portrait kafka-1 (902×1260) bleed kanan sesuai aspect ratio, parallax mouse, stats inline bottom-right, Intersection Observer fade-in
+- [x] `ProfileSection` — 2-col layout: foto portrait kafka-6 full-height kiri, prose+stats kanan, tidak ada tab UI, scroll reveal
+- [x] `SkillsSection` — foto landscape kafka-4 (1000×563) sebagai banner accent sesuai aspect ratio, gameplay loop timeline, stat priority
+- [x] Cleanup: hapus `HelloWorld.vue`, hapus emoji dari UI, update page title
 - [x] Fix image paths dengan `import.meta.env.BASE_URL` untuk dev + production
-- [x] `ProfileSection` — tabbed (Lore/Stats/Traits), offset photo card, Spirit Whisper lore, voice actor info
-- [x] `SkillsSection` — interactive hover cards, gameplay loop timeline, stat priority, common mistakes section
 - [x] `FooterSection` — brand footer dengan element, path, dan rarity info
 - [x] `src/data/kafka.js` — data lengkap: stats, skills, light cones, relics, lore facts
 - [x] Assets foto Kafka (`kafka-1` s/d `kafka-9`) diintegrasikan ke UI
