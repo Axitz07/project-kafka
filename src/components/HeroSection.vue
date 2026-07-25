@@ -2,132 +2,107 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
-const mouseX = ref(0)
-const mouseY = ref(0)
-const isLoaded = ref(false)
+const loaded = ref(false)
+const imgLoaded = ref(false)
 
-function handleMouseMove(e) {
-  mouseX.value = (e.clientX / window.innerWidth - 0.5) * 20
-  mouseY.value = (e.clientY / window.innerHeight - 0.5) * 10
-}
-
-onMounted(() => {
-  window.addEventListener('mousemove', handleMouseMove)
-  setTimeout(() => { isLoaded.value = true }, 80)
-})
-onUnmounted(() => window.removeEventListener('mousemove', handleMouseMove))
+onMounted(() => setTimeout(() => { loaded.value = true }, 60))
 </script>
 
 <template>
-  <section id="hero" class="relative min-h-screen overflow-hidden bg-[#03010a]">
+  <section id="hero" class="relative w-full overflow-hidden bg-[#08050f]" style="min-height: 100svh;">
 
-    <!-- Primary photo — right side, bleeding edge -->
-    <div class="absolute top-0 right-0 w-[55%] h-full hidden lg:block"
-         :style="{ transform: `translate(${mouseX * -0.3}px, ${mouseY * -0.2}px) scale(1.04)` }"
-         style="transition: transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94)">
-      <img :src="`${BASE}/assets/kafka/kafka-1.jpg`"
-           alt="Kafka"
-           class="w-full h-full object-cover object-top"
-           style="filter: brightness(0.5) saturate(0.75);" />
-      <!-- Fade left -->
-      <div class="absolute inset-0"
-           style="background: linear-gradient(to right, #03010a 0%, #03010a 5%, transparent 45%);"></div>
-      <!-- Fade bottom -->
-      <div class="absolute inset-0"
-           style="background: linear-gradient(to top, #03010a 0%, transparent 40%);"></div>
+    <!-- Photo — bleeds full, anchored right-center -->
+    <div class="absolute inset-0">
+      <img
+        :src="`${BASE}/assets/kafka/kafka-1.jpg`"
+        alt="Kafka"
+        @load="imgLoaded = true"
+        class="absolute inset-0 w-full h-full object-cover object-[70%_center] transition-opacity duration-1000"
+        :class="imgLoaded ? 'opacity-100' : 'opacity-0'"
+      />
+      <!-- Gradient — strong left fade so text is legible -->
+      <div class="absolute inset-0" style="background: linear-gradient(105deg, #08050f 38%, #08050f99 58%, transparent 80%);"></div>
+      <!-- Subtle bottom vignette -->
+      <div class="absolute inset-0" style="background: linear-gradient(to top, #08050f 0%, transparent 35%);"></div>
     </div>
 
-    <!-- Mobile background -->
-    <div class="absolute inset-0 lg:hidden">
-      <img :src="`${BASE}/assets/kafka/kafka-1.jpg`"
-           alt=""
-           class="w-full h-full object-cover object-top"
-           style="filter: brightness(0.25) saturate(0.6);" />
-      <div class="absolute inset-0 bg-gradient-to-t from-[#03010a] via-[#03010a]/70 to-transparent"></div>
-    </div>
+    <!-- Content -->
+    <div
+      class="relative z-10 flex flex-col justify-end pb-16 pt-28 px-8 md:px-16 lg:px-24"
+      style="min-height: 100svh;"
+    >
+      <div
+        class="max-w-lg transition-all duration-1000"
+        :style="loaded ? 'opacity:1; transform:translateY(0)' : 'opacity:0; transform:translateY(24px)'"
+      >
+        <!-- Small eyebrow — no emoji, no badge, just type -->
+        <p class="text-[11px] tracking-[0.55em] uppercase text-[#a08ab8] font-mono mb-6 leading-none">
+          Honkai&nbsp;:&nbsp;Star Rail&nbsp;&nbsp;—&nbsp;&nbsp;Stellaron Hunters
+        </p>
 
-    <!-- Lightning flicker — subtle, CSS only -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <div class="absolute w-px bg-gradient-to-b from-transparent via-[#e879f9]/50 to-transparent"
-           style="left: 62%; top: 10%; height: 35%; animation: flicker 9s ease-in-out infinite;"></div>
-    </div>
+        <!-- Name — the whole hero IS the name -->
+        <h1
+          class="font-black leading-[0.88] select-none mb-7"
+          style="
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: clamp(5rem, 18vw, 13rem);
+            letter-spacing: -0.04em;
+            color: #f0e8ff;
+            text-shadow: 0 0 120px rgba(140,80,220,0.25);
+          "
+        >
+          Kafka
+        </h1>
 
-    <!-- Purple atmospheric -->
-    <div class="absolute top-0 left-0 w-[500px] h-[500px] pointer-events-none"
-         style="background: radial-gradient(circle, rgba(124,58,237,0.07) 0%, transparent 65%); filter: blur(60px);"></div>
+        <!-- Quote — not "tagline", actual in-game dialogue -->
+        <p class="text-[#8b7aa0] text-sm leading-relaxed mb-10 max-w-xs" style="font-style: italic;">
+          "You won't remember a thing except me."
+        </p>
 
-    <!-- Top line -->
-    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#7c3aed]/25 to-transparent"></div>
-
-    <!-- Content — bottom-left anchored -->
-    <div class="relative z-10 min-h-screen flex items-end pb-20 pt-24">
-      <div class="w-full max-w-6xl mx-auto px-8">
-
-        <div class="max-w-xl"
-             :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
-             style="transition: all 1.1s cubic-bezier(0.16,1,0.3,1)">
-
-          <!-- Eyebrow — teks kecil, bukan badge bulat -->
-          <div class="flex items-center gap-3 mb-10">
-            <div class="w-5 h-px bg-[#e879f9]/60"></div>
-            <span class="text-[10px] text-[#6b4f8a] tracking-[0.5em] uppercase font-mono">Honkai: Star Rail</span>
-            <span class="text-[#2d1f4e] text-[10px]">·</span>
-            <span class="text-[10px] text-[#6b4f8a] tracking-[0.4em] uppercase font-mono">Stellaron Hunters</span>
-          </div>
-
-          <!-- Name — editorial, dominant -->
-          <h1 class="leading-none select-none mb-8"
-              style="font-family:'Georgia',serif;">
-            <span class="block font-black text-[#f1e8ff]"
-                  style="font-size: clamp(5.5rem, 20vw, 15rem); letter-spacing: -0.05em; text-shadow: 0 0 80px rgba(192,132,252,0.2);">
-              Kafka
+        <!-- Actions — minimal, not pill buttons -->
+        <div class="flex items-center gap-8">
+          <a
+            href="#profile"
+            class="flex items-center gap-3 group"
+          >
+            <span
+              class="block h-px bg-[#7c3aed] transition-all duration-500 group-hover:w-10"
+              style="width: 28px;"
+            ></span>
+            <span class="text-[11px] tracking-[0.35em] uppercase text-[#c4a8e0] group-hover:text-white transition-colors duration-300 font-mono">
+              Character
             </span>
-          </h1>
+          </a>
+          <a
+            href="#skills"
+            class="text-[11px] tracking-[0.35em] uppercase text-[#5c4a6e] hover:text-[#9b7fc4] transition-colors duration-300 font-mono"
+          >
+            Build Guide
+          </a>
+        </div>
+      </div>
 
-          <!-- Description — bukan stats grid -->
-          <p class="text-[#a78bca] text-sm leading-relaxed mb-12 max-w-sm"
-             style="font-style: italic;">
-            "You won't remember a thing except me."
-          </p>
-
-          <!-- Tags — horizontal list kecil, bukan pills -->
-          <div class="flex items-center gap-5 mb-14">
-            <span class="text-[10px] text-[#6b4f8a] tracking-[0.4em] uppercase font-mono">⚡ Lightning</span>
-            <span class="text-[#2d1f4e]">·</span>
-            <span class="text-[10px] text-[#6b4f8a] tracking-[0.4em] uppercase font-mono">Nihility</span>
-            <span class="text-[#2d1f4e]">·</span>
-            <span class="text-[10px] text-[#6b4f8a] tracking-[0.4em] uppercase font-mono">5★</span>
-          </div>
-
-          <!-- CTA — directional arrow bukan button kotak -->
-          <div class="flex items-center gap-10">
-            <a href="#profile"
-               class="group flex items-center gap-4 transition-all duration-300">
-              <span class="w-10 h-px bg-[#7c3aed]/60 group-hover:w-16 group-hover:bg-[#c084fc] transition-all duration-500"></span>
-              <span class="text-xs text-[#a78bca] group-hover:text-[#f1e8ff] tracking-[0.3em] uppercase font-mono transition-colors duration-300">
-                Profile
-              </span>
-            </a>
-            <a href="#skills"
-               class="text-[10px] text-[#6b4f8a] hover:text-[#a78bca] tracking-[0.3em] uppercase font-mono transition-colors duration-300">
-              Build →
-            </a>
-          </div>
+      <!-- Bottom-right: stats inline — not a grid -->
+      <div
+        class="absolute bottom-10 right-8 md:right-16 lg:right-24 flex items-center gap-6 transition-all duration-1200"
+        :style="loaded ? 'opacity:1' : 'opacity:0'"
+        style="transition-delay: 400ms;"
+      >
+        <div class="text-right">
+          <p class="text-[10px] text-[#4a3a5c] tracking-widest uppercase font-mono">Element</p>
+          <p class="text-[13px] text-[#c084fc] font-mono tracking-wider">Lightning</p>
+        </div>
+        <div class="w-px h-6 bg-[#2d1f4e]"></div>
+        <div class="text-right">
+          <p class="text-[10px] text-[#4a3a5c] tracking-widest uppercase font-mono">Path</p>
+          <p class="text-[13px] text-[#a78bca] font-mono tracking-wider">Nihility</p>
+        </div>
+        <div class="w-px h-6 bg-[#2d1f4e]"></div>
+        <div class="text-right">
+          <p class="text-[10px] text-[#4a3a5c] tracking-widest uppercase font-mono">Rarity</p>
+          <p class="text-[13px] text-[#f59e0b] font-mono tracking-wider">5★</p>
         </div>
       </div>
     </div>
-
-    <!-- Bottom line -->
-    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#2d1f4e]/60 to-transparent"></div>
   </section>
 </template>
-
-<style scoped>
-@keyframes flicker {
-  0%, 80%, 100% { opacity: 0; }
-  81%, 83% { opacity: 0.8; }
-  84% { opacity: 0.1; }
-  85%, 87% { opacity: 0.6; }
-  88%, 100% { opacity: 0; }
-}
-</style>
