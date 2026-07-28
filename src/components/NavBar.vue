@@ -12,7 +12,6 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 const links = [
   { href: '#profile', label: 'Profile' },
   { href: '#skills',  label: 'Skills'  },
-  { href: '#build',   label: 'Build'   },
 ]
 </script>
 

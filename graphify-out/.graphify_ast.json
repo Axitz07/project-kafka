@@ -1,0 +1,1171 @@
+{
+  "nodes": [
+    {
+      "id": "package",
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_name",
+      "label": "name",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_private",
+      "label": "private",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_version",
+      "label": "version",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_type",
+      "label": "type",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_scripts_dev",
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_scripts_build",
+      "label": "build",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_scripts_preview",
+      "label": "preview",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_scripts_deploy",
+      "label": "deploy",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_dependencies",
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_dependencies_vue",
+      "label": "vue",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "_origin": "ast"
+    },
+    {
+      "id": "vue",
+      "label": "vue",
+      "file_type": "concept",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_devdependencies",
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_devdependencies_tailwindcss_vite",
+      "label": "@tailwindcss/vite",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "_origin": "ast"
+    },
+    {
+      "id": "tailwindcss_vite",
+      "label": "@tailwindcss/vite",
+      "file_type": "concept",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_devdependencies_vitejs_plugin_vue",
+      "label": "@vitejs/plugin-vue",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "_origin": "ast"
+    },
+    {
+      "id": "vitejs_plugin_vue",
+      "label": "@vitejs/plugin-vue",
+      "file_type": "concept",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_devdependencies_gh_pages",
+      "label": "gh-pages",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "_origin": "ast"
+    },
+    {
+      "id": "gh_pages",
+      "label": "gh-pages",
+      "file_type": "concept",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_devdependencies_tailwindcss",
+      "label": "tailwindcss",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "_origin": "ast"
+    },
+    {
+      "id": "tailwindcss",
+      "label": "tailwindcss",
+      "file_type": "concept",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "_origin": "ast"
+    },
+    {
+      "id": "package_devdependencies_vite",
+      "label": "vite",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
+      "id": "vite",
+      "label": "vite",
+      "file_type": "concept",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_app",
+      "label": "App.vue",
+      "file_type": "code",
+      "source_file": "src/App.vue",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_footersection",
+      "label": "FooterSection.vue",
+      "file_type": "code",
+      "source_file": "src/components/FooterSection.vue",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_footersection_base",
+      "label": "BASE",
+      "file_type": "code",
+      "source_file": "src/components/FooterSection.vue",
+      "source_location": "L3",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_herosection",
+      "label": "HeroSection.vue",
+      "file_type": "code",
+      "source_file": "src/components/HeroSection.vue",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_herosection_base",
+      "label": "BASE",
+      "file_type": "code",
+      "source_file": "src/components/HeroSection.vue",
+      "source_location": "L4",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_herosection_heroref",
+      "label": "heroRef",
+      "file_type": "code",
+      "source_file": "src/components/HeroSection.vue",
+      "source_location": "L7",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_herosection_visible",
+      "label": "visible",
+      "file_type": "code",
+      "source_file": "src/components/HeroSection.vue",
+      "source_location": "L8",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_herosection_imgloaded",
+      "label": "imgLoaded",
+      "file_type": "code",
+      "source_file": "src/components/HeroSection.vue",
+      "source_location": "L9",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_herosection_px",
+      "label": "px",
+      "file_type": "code",
+      "source_file": "src/components/HeroSection.vue",
+      "source_location": "L17",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_herosection_py",
+      "label": "py",
+      "file_type": "code",
+      "source_file": "src/components/HeroSection.vue",
+      "source_location": "L18",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_herosection_onmove",
+      "label": "onMove()",
+      "file_type": "code",
+      "source_file": "src/components/HeroSection.vue",
+      "source_location": "L19",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_navbar",
+      "label": "NavBar.vue",
+      "file_type": "code",
+      "source_file": "src/components/NavBar.vue",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_navbar_base",
+      "label": "BASE",
+      "file_type": "code",
+      "source_file": "src/components/NavBar.vue",
+      "source_location": "L4",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_navbar_scrolled",
+      "label": "scrolled",
+      "file_type": "code",
+      "source_file": "src/components/NavBar.vue",
+      "source_location": "L5",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_navbar_isopen",
+      "label": "isOpen",
+      "file_type": "code",
+      "source_file": "src/components/NavBar.vue",
+      "source_location": "L6",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_navbar_onscroll",
+      "label": "onScroll()",
+      "file_type": "code",
+      "source_file": "src/components/NavBar.vue",
+      "source_location": "L8",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_navbar_links",
+      "label": "links",
+      "file_type": "code",
+      "source_file": "src/components/NavBar.vue",
+      "source_location": "L12",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_profilesection",
+      "label": "ProfileSection.vue",
+      "file_type": "code",
+      "source_file": "src/components/ProfileSection.vue",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_profilesection_base",
+      "label": "BASE",
+      "file_type": "code",
+      "source_file": "src/components/ProfileSection.vue",
+      "source_location": "L5",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_profilesection_el",
+      "label": "el",
+      "file_type": "code",
+      "source_file": "src/components/ProfileSection.vue",
+      "source_location": "L6",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_profilesection_show",
+      "label": "show",
+      "file_type": "code",
+      "source_file": "src/components/ProfileSection.vue",
+      "source_location": "L7",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_skillssection",
+      "label": "SkillsSection.vue",
+      "file_type": "code",
+      "source_file": "src/components/SkillsSection.vue",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_skillssection_base",
+      "label": "BASE",
+      "file_type": "code",
+      "source_file": "src/components/SkillsSection.vue",
+      "source_location": "L5",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_skillssection_el",
+      "label": "el",
+      "file_type": "code",
+      "source_file": "src/components/SkillsSection.vue",
+      "source_location": "L6",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_skillssection_show",
+      "label": "show",
+      "file_type": "code",
+      "source_file": "src/components/SkillsSection.vue",
+      "source_location": "L7",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_skillssection_activelc",
+      "label": "activeLc",
+      "file_type": "code",
+      "source_file": "src/components/SkillsSection.vue",
+      "source_location": "L8",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_skillssection_skillcolor",
+      "label": "skillColor",
+      "file_type": "code",
+      "source_file": "src/components/SkillsSection.vue",
+      "source_location": "L10",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_components_skillssection_loop",
+      "label": "loop",
+      "file_type": "code",
+      "source_file": "src/components/SkillsSection.vue",
+      "source_location": "L17",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_kafka",
+      "label": "kafka.js",
+      "file_type": "code",
+      "source_file": "src/data/kafka.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_kafka_kafka",
+      "label": "kafka",
+      "file_type": "code",
+      "source_file": "src/data/kafka.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_data_kafka_kafkafacts",
+      "label": "kafkaFacts",
+      "file_type": "code",
+      "source_file": "src/data/kafka.js",
+      "source_location": "L86",
+      "_origin": "ast"
+    },
+    {
+      "id": "src_main",
+      "label": "main.js",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "vite_config",
+      "label": "vite.config.js",
+      "file_type": "code",
+      "source_file": "vite.config.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    }
+  ],
+  "edges": [
+    {
+      "source": "package",
+      "target": "package_name",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_private",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_version",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_type",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_scripts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_scripts",
+      "target": "package_scripts_dev",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_scripts",
+      "target": "package_scripts_build",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_scripts",
+      "target": "package_scripts_preview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_scripts",
+      "target": "package_scripts_deploy",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_dependencies",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_dependencies",
+      "target": "package_dependencies_vue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_dependencies_vue",
+      "target": "vue",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "package",
+      "target": "package_devdependencies",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_tailwindcss_vite",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies_tailwindcss_vite",
+      "target": "tailwindcss_vite",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_vitejs_plugin_vue",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies_vitejs_plugin_vue",
+      "target": "vitejs_plugin_vue",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_gh_pages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies_gh_pages",
+      "target": "gh_pages",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_tailwindcss",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies_tailwindcss",
+      "target": "tailwindcss",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_vite",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "package_devdependencies_vite",
+      "target": "vite",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "context": "import",
+      "_origin": "ast"
+    },
+    {
+      "source": "src_app",
+      "target": "src_components_navbar",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.vue",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_app",
+      "target": "src_components_herosection",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.vue",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_app",
+      "target": "src_components_profilesection",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.vue",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_app",
+      "target": "src_components_skillssection",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.vue",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_app",
+      "target": "src_components_footersection",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.vue",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_footersection",
+      "target": "src_data_kafka",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/FooterSection.vue",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_footersection",
+      "target": "src_data_kafka_kafka",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/FooterSection.vue",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_footersection",
+      "target": "src_components_footersection_base",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/FooterSection.vue",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_herosection",
+      "target": "ref_vue",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/HeroSection.vue",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_herosection",
+      "target": "src_components_herosection_base",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/HeroSection.vue",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_herosection",
+      "target": "src_components_herosection_heroref",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/HeroSection.vue",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_herosection",
+      "target": "src_components_herosection_visible",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/HeroSection.vue",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_herosection",
+      "target": "src_components_herosection_imgloaded",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/HeroSection.vue",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_herosection",
+      "target": "src_components_herosection_px",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/HeroSection.vue",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_herosection",
+      "target": "src_components_herosection_py",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/HeroSection.vue",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_herosection",
+      "target": "src_components_herosection_onmove",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/HeroSection.vue",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_navbar",
+      "target": "ref_vue",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/NavBar.vue",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_navbar",
+      "target": "src_components_navbar_base",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/NavBar.vue",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_navbar",
+      "target": "src_components_navbar_scrolled",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/NavBar.vue",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_navbar",
+      "target": "src_components_navbar_isopen",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/NavBar.vue",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_navbar",
+      "target": "src_components_navbar_onscroll",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/NavBar.vue",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_navbar",
+      "target": "src_components_navbar_links",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/NavBar.vue",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_profilesection",
+      "target": "ref_vue",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ProfileSection.vue",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_profilesection",
+      "target": "src_data_kafka",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ProfileSection.vue",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_profilesection",
+      "target": "src_data_kafka_kafka",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ProfileSection.vue",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_profilesection",
+      "target": "src_components_profilesection_base",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ProfileSection.vue",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_profilesection",
+      "target": "src_components_profilesection_el",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ProfileSection.vue",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_profilesection",
+      "target": "src_components_profilesection_show",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ProfileSection.vue",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_skillssection",
+      "target": "ref_vue",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SkillsSection.vue",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_skillssection",
+      "target": "src_data_kafka",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SkillsSection.vue",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_skillssection",
+      "target": "src_data_kafka_kafka",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SkillsSection.vue",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_skillssection",
+      "target": "src_components_skillssection_base",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SkillsSection.vue",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_skillssection",
+      "target": "src_components_skillssection_el",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SkillsSection.vue",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_skillssection",
+      "target": "src_components_skillssection_show",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SkillsSection.vue",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_skillssection",
+      "target": "src_components_skillssection_activelc",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SkillsSection.vue",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_skillssection",
+      "target": "src_components_skillssection_skillcolor",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SkillsSection.vue",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_components_skillssection",
+      "target": "src_components_skillssection_loop",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/SkillsSection.vue",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_kafka",
+      "target": "src_data_kafka_kafka",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/kafka.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_data_kafka",
+      "target": "src_data_kafka_kafkafacts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/kafka.js",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_main",
+      "target": "ref_vue",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_main",
+      "target": "src_style",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "src_main",
+      "target": "src_app",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "vite_config",
+      "target": "ref_vite",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "vite.config.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "vite_config",
+      "target": "ref_vitejs_plugin_vue",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "vite.config.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "vite_config",
+      "target": "ref_tailwindcss_vite",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "vite.config.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

@@ -164,7 +164,7 @@ onMounted(() => {
             :key="m"
             class="flex items-start gap-3 p-4 bg-[#0a0318] border border-[#1a1030]"
           >
-            <span class="text-[#3d1f5e] text-xs flex-shrink-0 mt-0.5">✕</span>
+            <span class="text-[#8060a0] text-xs flex-shrink-0 mt-0.5">✕</span>
             <p class="text-xs text-[#6b4f8a] leading-relaxed">{{ m }}</p>
           </div>
         </div>
