@@ -1,24 +1,59 @@
 @import "tailwindcss";
 
 @theme {
-  /* Kafka — dark luxury palette */
   --color-void: #05030a;
   --color-deep: #0d0818;
   --color-surface: #130d22;
   --color-elevated: #1e1535;
   --color-border: #2d1f4e;
-  --color-purple-dim: #4a2d8a;
   --color-purple: #7c3aed;
   --color-purple-bright: #9d5cf6;
   --color-purple-glow: #c084fc;
   --color-lightning: #e879f9;
   --color-gold: #f59e0b;
   --color-text-primary: #f1e8ff;
-  --color-text-secondary: #a78bca;
-  --color-text-muted: #6b4f8a;
+  --color-text-secondary: #b89fd4;
+  --color-text-muted: #7a6090;
+  --color-text-dim: #4a3a5e;
 
+  --font-display: "Cormorant Garamond", "Georgia", serif;
   --font-body: "Inter", system-ui, sans-serif;
 }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #05030a;
+  color: #f1e8ff;
+  font-family: "Inter", system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app { min-height: 100vh; }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: #0d0818; }
+::-webkit-scrollbar-thumb { background: #2d1f4e; }
+
+/* Section divider — vertical purple rule */
+.section-rule {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, #7c3aed60, transparent);
+  margin: 0 auto;
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 
 *, *::before, *::after {
   box-sizing: border-box;

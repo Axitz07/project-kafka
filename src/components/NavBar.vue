@@ -1,17 +1,16 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
 const scrolled = ref(false)
-const isOpen = ref(false)
+const isOpen   = ref(false)
 
-function onScroll() { scrolled.value = window.scrollY > 60 }
+function onScroll() { scrolled.value = window.scrollY > 48 }
 onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
 onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 const links = [
-  { href: '#profile', label: 'Profile' },
-  { href: '#skills',  label: 'Skills'  },
+  { href: '#profile', label: 'Character' },
+  { href: '#skills',  label: 'Build'      },
 ]
 </script>
 
@@ -19,59 +18,56 @@ const links = [
   <header
     class="fixed top-0 inset-x-0 z-50 transition-all duration-500"
     :class="scrolled
-      ? 'bg-[#06030f]/90 backdrop-blur-md border-b border-white/5'
+      ? 'border-b border-[#2d1f4e]/40 backdrop-blur-md bg-[#05030a]/85'
       : 'bg-transparent'"
   >
-    <div class="max-w-6xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+    <div class="max-w-6xl mx-auto px-8 md:px-14 lg:px-20 h-16 flex items-center justify-between">
 
-      <!-- Wordmark -->
-      <a href="#" class="flex items-center gap-3 group">
-        <span
-          class="text-[#f0e8ff] font-black tracking-tight text-xl select-none"
-          style="font-family:'Georgia',serif; letter-spacing:-0.02em;"
-        >Kafka</span>
-        <span class="text-[#4a3a5e] text-sm font-mono tracking-widest select-none hidden md:block">5★</span>
+      <!-- Wordmark — Cormorant, distinctive -->
+      <a href="#hero" class="group leading-none select-none">
+        <span class="text-[#f1e8ff] font-semibold"
+              style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.35rem;letter-spacing:-.01em;">
+          Kafka
+        </span>
+        <span class="text-[#4a3a5e] text-xs font-mono tracking-widest ml-2 align-middle">5★</span>
       </a>
 
       <!-- Desktop nav -->
       <nav class="hidden md:flex items-center gap-1">
-        <a
-          v-for="l in links" :key="l.href"
-          :href="l.href"
-          class="px-4 py-2 text-xs tracking-[0.25em] uppercase font-mono text-[#7a6890] hover:text-[#f0e8ff] transition-colors duration-200"
-        >{{ l.label }}</a>
+        <a v-for="l in links" :key="l.href" :href="l.href"
+           class="px-4 py-2 text-xs tracking-[.3em] uppercase text-[#7a6090] hover:text-[#f1e8ff] transition-colors duration-200 relative group">
+          {{ l.label }}
+          <span class="absolute bottom-1.5 left-4 right-4 h-px bg-[#7c3aed] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+        </a>
       </nav>
 
-      <!-- Faction tag — right side -->
-      <span class="hidden md:block text-xs tracking-[0.35em] uppercase font-mono text-[#4a3a5e]">
+      <!-- Faction tag -->
+      <span class="hidden md:block text-[10px] tracking-[.4em] uppercase text-[#3d2d50] font-mono">
         Stellaron Hunters
       </span>
 
       <!-- Mobile toggle -->
-      <button
-        class="md:hidden w-8 h-8 flex flex-col justify-center items-center gap-1.5"
-        @click="isOpen = !isOpen"
-        aria-label="Menu"
-      >
-        <span class="block h-px w-5 bg-[#7a6890] transition-all duration-200" :class="isOpen ? 'rotate-45 translate-y-1.5' : ''" />
-        <span class="block h-px w-5 bg-[#7a6890] transition-all duration-200" :class="isOpen ? 'opacity-0' : ''" />
-        <span class="block h-px w-5 bg-[#7a6890] transition-all duration-200" :class="isOpen ? '-rotate-45 -translate-y-1.5' : ''" />
+      <button class="md:hidden text-[#7a6090] hover:text-[#f1e8ff] transition-colors p-1"
+              @click="isOpen=!isOpen" aria-label="Menu">
+        <div class="w-5 flex flex-col gap-1.5">
+          <span class="h-px bg-current transition-all duration-300"
+                :class="isOpen?'rotate-45 translate-y-2':''"></span>
+          <span class="h-px bg-current transition-all duration-300"
+                :class="isOpen?'opacity-0':''"></span>
+          <span class="h-px bg-current transition-all duration-300"
+                :class="isOpen?'-rotate-45 -translate-y-2':''"></span>
+        </div>
       </button>
     </div>
 
     <!-- Mobile menu -->
-    <div
-      class="md:hidden overflow-hidden transition-all duration-300 bg-[#06030f]/95 backdrop-blur-md border-t border-white/5"
-      :class="isOpen ? 'max-h-40' : 'max-h-0'"
-    >
-      <nav class="px-6 py-4 flex flex-col gap-3">
-        <a
-          v-for="l in links" :key="l.href"
-          :href="l.href"
-          class="text-[11px] tracking-[0.3em] uppercase font-mono text-[#7a6890] hover:text-[#f0e8ff] transition-colors"
-          @click="isOpen = false"
-        >{{ l.label }}</a>
-      </nav>
+    <div class="md:hidden overflow-hidden transition-all duration-300"
+         :class="isOpen?'max-h-32 border-t border-[#2d1f4e]/40':'max-h-0'">
+      <div class="bg-[#0d0818] px-8 py-4 flex flex-col gap-1">
+        <a v-for="l in links" :key="l.href" :href="l.href"
+           class="py-2 text-sm text-[#7a6090] hover:text-[#f1e8ff] tracking-[.3em] uppercase transition-colors"
+           @click="isOpen=false">{{ l.label }}</a>
+      </div>
     </div>
   </header>
 </template>
