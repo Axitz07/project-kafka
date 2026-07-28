@@ -16,10 +16,10 @@ const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
               style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.8rem;letter-spacing:-.02em;">
             {{ kafka.name }}
           </h3>
-          <p class="text-[#4a3a5e] text-xs font-mono tracking-widest mb-6">
+          <p class="text-[#7a6090] text-xs font-mono tracking-widest mb-6">
             {{ kafka.faction }} · {{ kafka.path }} · {{ kafka.element }}
           </p>
-          <p class="text-[#4a3a5e] text-sm leading-relaxed">
+          <p class="text-[#7a6090] text-sm leading-relaxed">
             Halaman dedikasi untuk Kafka dari Honkai: Star Rail.
             Profil karakter, analisis kit, dan panduan build.
           </p>
