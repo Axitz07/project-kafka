@@ -2,16 +2,17 @@
 import { ref, onMounted } from 'vue'
 import { kafka } from '../data/kafka.js'
 
-const BASE      = import.meta.env.BASE_URL.replace(/\/$/, '')
-const el        = ref(null)
-const show      = ref(false)
-const activeLc  = ref(0)
+const BASE     = import.meta.env.BASE_URL.replace(/\/$/, '')
+const el       = ref(null)
+const show     = ref(false)
+const activeLc = ref(0)
+const hovered  = ref(null)
 
 const skillColor = {
-  'Basic ATK': { text:'#7a6090', border:'rgba(122,96,144,.25)', bg:'rgba(122,96,144,.05)' },
-  'Skill':     { text:'#c084fc', border:'rgba(192,132,252,.25)', bg:'rgba(192,132,252,.06)' },
-  'Ultimate':  { text:'#f59e0b', border:'rgba(245,158,11,.25)',  bg:'rgba(245,158,11,.05)'  },
-  'Talent':    { text:'#b89fd4', border:'rgba(184,159,212,.25)', bg:'rgba(184,159,212,.05)' },
+  'Basic ATK': { text: '#9080a8', border: 'rgba(144,128,168,.2)', bg: 'rgba(144,128,168,.04)', glow: 'rgba(144,128,168,.15)' },
+  'Skill':     { text: '#c084fc', border: 'rgba(192,132,252,.25)', bg: 'rgba(192,132,252,.06)', glow: 'rgba(192,132,252,.2)'  },
+  'Ultimate':  { text: '#f59e0b', border: 'rgba(245,158,11,.25)',  bg: 'rgba(245,158,11,.05)',  glow: 'rgba(245,158,11,.18)'  },
+  'Talent':    { text: '#b89fd4', border: 'rgba(184,159,212,.2)',  bg: 'rgba(184,159,212,.04)', glow: 'rgba(184,159,212,.15)' },
 }
 
 const loop = [
@@ -20,21 +21,7 @@ const loop = [
   'Partner reapplies DoT while Kafka recovers energy',
   'Kafka Skill again when DoT value is high',
   'Use Ultimate when Energy reaches maximum',
-  'Never use Skill on a target with zero active DoT',
-]
-
-const statPriority = [
-  { stat:'SPD',             note:'More actions = more detonations. Tertinggi.' },
-  { stat:'ATK%',            note:'Main stat Body & Rope.' },
-  { stat:'Lightning DMG%',  note:'Main stat Sphere.' },
-  { stat:'Effect Hit Rate', note:'Min 30% untuk Shock konsisten.' },
-]
-
-const mistakes = [
-  'Build Crit Rate/DMG seperti DPS konvensional',
-  'Gunakan Skill sebelum DoT aktif di musuh',
-  'SPD terlalu rendah',
-  'Main tanpa partner DoT',
+  'Never Skill when enemy has zero active DoT',
 ]
 
 onMounted(() => {
@@ -46,72 +33,109 @@ onMounted(() => {
 </script>
 
 <template>
-  <!-- kafka-4: 1000×563 landscape — used as wide accent banner -->
   <section id="skills" ref="el" class="relative bg-[#06030f] overflow-hidden">
-    <div class="h-px bg-gradient-to-r from-transparent via-[#2d1f4e]/30 to-transparent"></div>
+    <div class="h-px bg-gradient-to-r from-transparent via-[#2d1f4e]/25 to-transparent" />
 
-    <!-- Landscape photo banner — aspect ratio respected, no crop -->
-    <div class="relative w-full overflow-hidden" style="max-height:320px;">
+    <!-- Landscape photo banner — kafka-4 (1000×563), aspect ratio preserved -->
+    <div class="relative w-full overflow-hidden" style="max-height: 300px;">
       <img
         :src="`${BASE}/assets/kafka/kafka-4.jpg`"
         alt=""
         aria-hidden="true"
         class="w-full object-cover"
-        style="height:clamp(160px,30vw,320px);filter:brightness(.3) saturate(.6);"
+        style="height: clamp(160px, 28vw, 300px); filter: brightness(.28) saturate(.6);"
       />
       <div class="absolute inset-0"
-           style="background:linear-gradient(to bottom,#06030f 0%,transparent 25%,transparent 65%,#06030f 100%);"></div>
+           style="background: linear-gradient(to bottom, #06030f 0%, transparent 25%, transparent 65%, #06030f 100%);" />
     </div>
 
-    <div class="max-w-6xl mx-auto px-8 md:px-14 lg:px-20 py-20
-                transition-all duration-1000"
-         :style="show?'opacity:1;transform:translateY(0)':'opacity:0;transform:translateY(20px)'">
-
-      <!-- Section header -->
+    <div
+      class="max-w-6xl mx-auto px-8 md:px-14 lg:px-20 py-20 transition-all duration-1000"
+      :class="show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
+    >
+      <!-- Header -->
       <div class="mb-16">
-        <p class="text-[10px] tracking-[.5em] uppercase text-[#5a4870] font-mono mb-3">
-          Skills & Build
+        <p class="text-[10px] tracking-[.5em] uppercase text-[#5a4870] font-mono mb-4">
+          Skills &amp; Build
         </p>
-        <p class="text-[#7a6090] max-w-xl leading-relaxed"
-           style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.1rem;font-style:italic;">
+        <p
+          class="text-[#7a6090] max-w-xl leading-relaxed"
+          style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; font-style: italic;"
+        >
           Kafka tidak menambah DoT — ia membuat DoT yang sudah ada meledak lebih cepat.
           Waktu itu sendiri adalah senjatanya.
         </p>
       </div>
 
-      <!-- Skills grid -->
+      <!-- Skill cards — hover lift + glow -->
       <div class="mb-20">
-        <p class="text-[10px] tracking-[.5em] uppercase text-[#5a4870] font-mono mb-8">Active Skills</p>
+        <p class="text-[10px] tracking-[.5em] uppercase text-[#5a4870] font-mono mb-8">
+          Active Skills
+        </p>
         <div class="grid sm:grid-cols-2 gap-3">
-          <div v-for="s in kafka.skills" :key="s.name"
-               class="group p-6 border transition-all duration-200 cursor-default"
-               :style="`border-color:${skillColor[s.type]?.border??'rgba(45,31,78,.4)'};
-                        background:${skillColor[s.type]?.bg??'rgba(10,5,21,.8)'};`">
-            <span class="inline-block text-[10px] tracking-widest uppercase font-mono px-2 py-0.5 mb-4 border"
-                  :style="`color:${skillColor[s.type]?.text};border-color:${skillColor[s.type]?.border};`">
-              {{ s.type }}
-            </span>
+          <div
+            v-for="s in kafka.skills"
+            :key="s.name"
+            class="p-6 border cursor-default transition-all duration-300"
+            :style="{
+              borderColor: hovered === s.name
+                ? skillColor[s.type]?.border ?? 'rgba(45,31,78,.4)'
+                : 'rgba(26,16,48,.7)',
+              background: hovered === s.name
+                ? skillColor[s.type]?.bg ?? 'rgba(10,5,21,.8)'
+                : 'rgba(8,3,18,.9)',
+              transform: hovered === s.name ? 'translateY(-3px)' : 'translateY(0)',
+              boxShadow: hovered === s.name
+                ? `0 12px 40px ${skillColor[s.type]?.glow ?? 'rgba(124,58,237,.1)'}`
+                : 'none',
+            }"
+            @mouseenter="hovered = s.name"
+            @mouseleave="hovered = null"
+          >
+            <span
+              class="inline-block text-[10px] tracking-widest uppercase font-mono px-2 py-0.5 mb-4 border"
+              :style="{
+                color: skillColor[s.type]?.text,
+                borderColor: skillColor[s.type]?.border,
+              }"
+            >{{ s.type }}</span>
             <h4 class="text-sm font-medium text-[#f1e8ff] mb-2 leading-snug">{{ s.name }}</h4>
-            <p class="text-xs text-[#5a4870] leading-relaxed group-hover:text-[#9080a8] transition-colors duration-200">
-              {{ s.description }}
-            </p>
+            <p
+              class="text-xs leading-relaxed transition-colors duration-200"
+              :class="hovered === s.name ? 'text-[#9080a8]' : 'text-[#4a3a5e]'"
+            >{{ s.description }}</p>
           </div>
         </div>
       </div>
 
-      <!-- Two-column: loop + stat priority -->
+      <!-- Two-col: loop + stat priority -->
       <div class="grid lg:grid-cols-2 gap-14 mb-20">
 
         <!-- Gameplay loop -->
         <div>
-          <p class="text-[10px] tracking-[.5em] uppercase text-[#5a4870] font-mono mb-8">Gameplay Loop</p>
+          <p class="text-[10px] tracking-[.5em] uppercase text-[#5a4870] font-mono mb-8">
+            Gameplay Loop
+          </p>
           <div class="relative pl-6">
-            <div class="absolute left-2 top-0 bottom-0 w-px bg-[#1a1030]"></div>
+            <div class="absolute left-2 top-0 bottom-0 w-px bg-[#1a1030]" />
             <div class="space-y-5">
-              <div v-for="(step, i) in loop" :key="i"
-                   class="relative group">
-                <div class="absolute -left-[18px] top-[5px] w-2 h-2 rounded-full bg-[#1e1535] border border-[#3d2d60] group-hover:bg-[#7c3aed] transition-colors duration-200"></div>
-                <p class="text-xs text-[#5a4870] group-hover:text-[#9080a8] transition-colors leading-relaxed">
+              <div
+                v-for="(step, i) in loop"
+                :key="i"
+                class="relative group cursor-default"
+              >
+                <div
+                  class="absolute -left-[18px] top-[5px] w-2 h-2 rounded-full border transition-all duration-300"
+                  :class="hovered === `step-${i}`
+                    ? 'bg-[#7c3aed] border-[#7c3aed] scale-125'
+                    : 'bg-[#1e1535] border-[#3d2d60]'"
+                />
+                <p
+                  class="text-xs leading-relaxed transition-colors duration-200 cursor-default"
+                  :class="hovered === `step-${i}` ? 'text-[#9080a8]' : 'text-[#4a3a5e]'"
+                  @mouseenter="hovered = `step-${i}`"
+                  @mouseleave="hovered = null"
+                >
                   <span class="text-[#2d2040] font-mono mr-2">{{ String(i+1).padStart(2,'0') }}</span>
                   {{ step }}
                 </p>
@@ -122,14 +146,26 @@ onMounted(() => {
 
         <!-- Stat priority -->
         <div>
-          <p class="text-[10px] tracking-[.5em] uppercase text-[#5a4870] font-mono mb-8">Stat Priority</p>
+          <p class="text-[10px] tracking-[.5em] uppercase text-[#5a4870] font-mono mb-8">
+            Stat Priority
+          </p>
           <div class="divide-y divide-[#1a1030]">
-            <div v-for="(s, i) in statPriority" :key="s.stat"
-                 class="flex items-start gap-4 py-4 group">
-              <span class="text-[10px] text-[#2d2040] font-mono w-5 flex-shrink-0 mt-0.5">{{ i+1 }}</span>
+            <div
+              v-for="(s, i) in [
+                { stat: 'SPD',             note: 'More actions = more detonations. Highest priority.' },
+                { stat: 'ATK%',            note: 'Main stat Body & Rope.' },
+                { stat: 'Lightning DMG%',  note: 'Main stat Sphere.' },
+                { stat: 'Effect Hit Rate', note: 'Min 30% untuk Shock konsisten.' },
+              ]"
+              :key="s.stat"
+              class="flex items-start gap-4 py-4 group cursor-default"
+            >
+              <span class="text-[10px] text-[#2d2040] font-mono w-5 flex-shrink-0 mt-0.5">
+                {{ i+1 }}
+              </span>
               <div>
                 <p class="text-xs font-mono text-[#c084fc] mb-1">{{ s.stat }}</p>
-                <p class="text-[10px] text-[#5a4870] group-hover:text-[#9080a8] transition-colors leading-relaxed">
+                <p class="text-[10px] text-[#4a3a5e] group-hover:text-[#9080a8] transition-colors leading-relaxed">
                   {{ s.note }}
                 </p>
               </div>
@@ -138,40 +174,55 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- Light Cones -->
+      <!-- Light Cones — clickable list -->
       <div class="mb-16">
-        <p class="text-[10px] tracking-[.5em] uppercase text-[#5a4870] font-mono mb-8">Light Cones</p>
+        <p class="text-[10px] tracking-[.5em] uppercase text-[#5a4870] font-mono mb-8">
+          Light Cones
+        </p>
         <div class="divide-y divide-[#1a1030]">
-          <div v-for="(lc, i) in kafka.lightCones" :key="lc.name"
-               class="flex items-start gap-5 py-5 cursor-pointer group transition-opacity duration-200"
-               :class="activeLc===i?'opacity-100':'opacity-50 hover:opacity-80'"
-               @click="activeLc=i">
-            <span class="text-xs font-mono flex-shrink-0 mt-0.5 w-6"
-                  :class="lc.rarity===5?'text-[#f59e0b]':'text-[#a08ab8]'">
-              {{ lc.rarity }}★
-            </span>
+          <div
+            v-for="(lc, i) in kafka.lightCones"
+            :key="lc.name"
+            class="flex items-start gap-5 py-5 cursor-pointer group transition-all duration-200"
+            :class="activeLc === i ? 'opacity-100' : 'opacity-45 hover:opacity-75'"
+            @click="activeLc = i"
+          >
+            <span
+              class="text-xs font-mono flex-shrink-0 mt-0.5 w-6"
+              :class="lc.rarity === 5 ? 'text-[#f59e0b]' : 'text-[#9080a8]'"
+            >{{ lc.rarity }}★</span>
             <div>
               <div class="flex items-center gap-3 mb-1">
-                <h4 class="text-sm text-[#f1e8ff] group-hover:text-white transition-colors">{{ lc.name }}</h4>
-                <span v-if="lc.recommended"
-                      class="text-[9px] px-1.5 py-0.5 border border-[#f59e0b]/40 text-[#f59e0b] font-mono tracking-widest uppercase">
-                  BIS
-                </span>
+                <h4 class="text-sm text-[#f1e8ff] group-hover:text-white transition-colors">
+                  {{ lc.name }}
+                </h4>
+                <span
+                  v-if="lc.recommended"
+                  class="text-[9px] px-1.5 py-0.5 border border-[#f59e0b]/40 text-[#f59e0b] font-mono tracking-widest uppercase"
+                >BIS</span>
               </div>
-              <p class="text-[10px] text-[#4a3a5e]">{{ lc.note }}</p>
+              <p class="text-[10px] text-[#3d2d50]">{{ lc.note }}</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Common mistakes -->
+      <!-- Mistakes -->
       <div>
         <p class="text-[10px] tracking-[.5em] uppercase text-[#5a4870] font-mono mb-6">Hindari</p>
         <div class="grid sm:grid-cols-2 gap-3">
-          <div v-for="m in mistakes" :key="m"
-               class="flex items-start gap-3 p-4 bg-[#0a0318] border border-[#1a1030]">
+          <div
+            v-for="m in [
+              'Build Crit Rate/DMG seperti DPS konvensional',
+              'Gunakan Skill sebelum DoT aktif di musuh',
+              'SPD terlalu rendah — sedikit aksi = sedikit detonation',
+              'Main tanpa partner DoT',
+            ]"
+            :key="m"
+            class="flex items-start gap-3 p-4 bg-[#08031a] border border-[#1a1030] hover:border-[#2d1f4e] transition-colors duration-200"
+          >
             <span class="text-[#8060a0] text-xs flex-shrink-0 mt-0.5">✕</span>
-            <p class="text-xs text-[#5a4870] leading-relaxed">{{ m }}</p>
+            <p class="text-xs text-[#4a3a5e] leading-relaxed">{{ m }}</p>
           </div>
         </div>
       </div>
