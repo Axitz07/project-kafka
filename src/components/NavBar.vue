@@ -42,7 +42,7 @@ const links = [
       </nav>
 
       <!-- Faction tag -->
-      <span class="hidden md:block text-[10px] tracking-[.4em] uppercase text-[#3d2d50] font-mono">
+      <span class="hidden md:block text-[10px] tracking-[.4em] uppercase text-[#6b4f8a] font-mono">
         Stellaron Hunters
       </span>
 

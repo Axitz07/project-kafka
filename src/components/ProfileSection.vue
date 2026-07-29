@@ -118,7 +118,7 @@ function barWidth(key, val) {
                   </span>
                 </div>
                 <!-- Bar track -->
-                <div class="h-px bg-[#1a1030] overflow-hidden rounded-full">
+                <div class="h-0.5 bg-[#1a1030] overflow-hidden rounded-full">
                   <!-- Bar fill — animates on scroll reveal -->
                   <div
                     class="h-full rounded-full transition-all duration-1000 ease-out"
