@@ -139,7 +139,7 @@ const glowStyle = computed(() => ({
 
         <!-- Quote -->
         <p
-          class="mb-14 leading-relaxed text-[#6a5080] max-w-xs"
+          class="mb-14 leading-relaxed text-[#9b7ab8] max-w-xs"
           style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.05rem; font-style: italic;"
         >
           "You won't remember a thing except me."
@@ -172,17 +172,17 @@ const glowStyle = computed(() => ({
         style="transition-delay: 700ms;"
       >
         <div class="text-right">
-          <p class="text-[9px] text-[#2d1f4e] tracking-widest uppercase font-mono mb-0.5">Element</p>
+          <p class="text-[9px] text-[#5a4870] tracking-widest uppercase font-mono mb-0.5">Element</p>
           <p class="text-xs text-[#c084fc] font-mono">Lightning</p>
         </div>
         <div class="w-px h-5 bg-[#1a1030]" />
         <div class="text-right">
-          <p class="text-[9px] text-[#2d1f4e] tracking-widest uppercase font-mono mb-0.5">Path</p>
+          <p class="text-[9px] text-[#5a4870] tracking-widest uppercase font-mono mb-0.5">Path</p>
           <p class="text-xs text-[#9080a8] font-mono">Nihility</p>
         </div>
         <div class="w-px h-5 bg-[#1a1030]" />
         <div class="text-right">
-          <p class="text-[9px] text-[#2d1f4e] tracking-widest uppercase font-mono mb-0.5">Rarity</p>
+          <p class="text-[9px] text-[#5a4870] tracking-widest uppercase font-mono mb-0.5">Rarity</p>
           <p class="text-xs text-[#f59e0b] font-mono">5 ★</p>
         </div>
       </div>
