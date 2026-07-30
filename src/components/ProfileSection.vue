@@ -112,18 +112,18 @@ function barWidth(key, val) {
                   <span class="text-[10px] text-[#4a3a5e] tracking-widest uppercase font-mono">
                     {{ key }}
                   </span>
-                  <span class="text-xs font-mono text-[#c084fc] transition-all duration-300"
+                  <span class="text-xs font-mono text-[#c084fc] transition-all duration-300" style="font-variant-numeric: tabular-nums;"
                         :class="barsIn ? 'opacity-100' : 'opacity-0'">
                     {{ val }}
                   </span>
                 </div>
                 <!-- Bar track -->
-                <div class="h-0.5 bg-[#1a1030] overflow-hidden rounded-full">
+                <div class="h-0.5 bg-[#1a1030] overflow-hidden rounded-full" style="contain: paint;">
                   <!-- Bar fill — animates on scroll reveal -->
                   <div
-                    class="h-full rounded-full transition-all duration-1000 ease-out"
+                    class="h-full w-full rounded-full transition-transform duration-1000 ease-out origin-left"
                     :style="{
-                      width: barsIn ? `${barWidth(key, val)}%` : '0%',
+                      transform: barsIn ? `scaleX(${barWidth(key, val) / 100})` : 'scaleX(0)',
                       background: 'linear-gradient(to right, #7c3aed, #e879f9)',
                       transitionDelay: `${Object.keys(kafka.stats).indexOf(key) * 150}ms`,
                     }"
