@@ -40,7 +40,7 @@ function barWidth(key, val) {
         <div
           class="relative overflow-hidden transition-opacity duration-1000"
           :class="show ? 'opacity-100' : 'opacity-0'"
-          style="min-height: 600px;"
+          style="aspect-ratio: 902/1260; min-height: 420px; max-height: 80vh;"
         >
           <img
             :src="`${BASE}/assets/kafka/kafka-6.jpg`"
