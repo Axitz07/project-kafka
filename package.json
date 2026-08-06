@@ -10,6 +10,7 @@
     "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
+    "animejs": "^4.5.0",
     "lucide-vue-next": "^1.0.0",
     "vue": "^3.5.39"
   },
