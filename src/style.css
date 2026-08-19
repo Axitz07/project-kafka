@@ -1,23 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-void: #05030a;
-  --color-deep: #0d0818;
-  --color-surface: #130d22;
-  --color-elevated: #1e1535;
-  --color-border: #2d1f4e;
-  --color-purple: #7c3aed;
-  --color-purple-bright: #9d5cf6;
-  --color-purple-glow: #c084fc;
-  --color-lightning: #e879f9;
-  --color-gold: #f59e0b;
-  --color-text-primary: #f1e8ff;
-  --color-text-secondary: #b89fd4;
-  --color-text-muted: #7a6090;
-  --color-text-dim: #4a3a5e;
+  --color-void:           #05030a;
+  --color-deep:           #090614;
+  --color-surface:        #0f0a1e;
+  --color-elevated:       #17112e;
+  --color-border:         #221740;
+  --color-border-subtle:  #150f28;
+  --color-purple:         #7c3aed;
+  --color-purple-bright:  #9d5cf6;
+  --color-purple-glow:    #c084fc;
+  --color-lightning:      #e879f9;
+  --color-gold:           #f59e0b;
+  --color-gold-dim:       #92600a;
+  --color-text-primary:   #ede8f8;
+  --color-text-secondary: #9b8fc0;
+  --color-text-muted:     #5c5078;
+  --color-text-dim:       #362a52;
 
   --font-display: "Cormorant Garamond", "Georgia", serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --font-body:    "Inter", system-ui, sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -27,43 +29,31 @@ html { scroll-behavior: smooth; }
 body {
   background-color: var(--color-void);
   color: var(--color-text-primary);
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: var(--font-body);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #app { min-height: 100vh; }
 
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: var(--color-deep); }
+/* ── Scrollbar ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 2px; }
+::-webkit-scrollbar-track { background: var(--color-void); }
 ::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 9999px; }
 
-/* Section divider — vertical purple rule */
+/* ── Section rule ──────────────────────────────────────────────────────── */
 .section-rule {
   width: 1px;
   height: 48px;
-  background: linear-gradient(to bottom, transparent, rgba(124,58,237,.38), transparent);
+  background: linear-gradient(to bottom, transparent, var(--color-border), transparent);
   margin: 0 auto;
 }
 
-/* ── Anime.js reveal helpers ─────────────────────────────────────────── */
-/* anim-hidden: opacity + lift, used for vertical reveals */
-.anim-hidden {
-  opacity: 0;
-  transform: translateY(18px);
-}
-
-/* anim-hidden-x: opacity + slide from left, used for horizontal reveals */
-.anim-hidden-x {
-  opacity: 0;
-  transform: translateX(-14px);
-}
-
-/* anim-hidden-xr: opacity + slide from right */
-.anim-hidden-xr {
-  opacity: 0;
-  transform: translateX(14px);
-}
+/* ── Reveal helpers (Anime.js) ─────────────────────────────────────────── */
+.anim-hidden   { opacity: 0; transform: translateY(16px); }
+.anim-hidden-x { opacity: 0; transform: translateX(-12px); }
+.anim-hidden-xr{ opacity: 0; transform: translateX(12px); }
 
 @media (prefers-reduced-motion: reduce) {
   .anim-hidden,
@@ -74,62 +64,97 @@ body {
   }
 }
 
-/* ── Nav link hover underline ────────────────────────────────────────── */
-.nav-link {
-  position: relative;
-}
+/* ── Nav link ──────────────────────────────────────────────────────────── */
+.nav-link { position: relative; }
 .nav-link::after {
   content: '';
   position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0;
-  height: 1px;
+  left: 0; bottom: -2px;
+  width: 0; height: 1px;
   background: var(--color-purple-glow);
-  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.nav-link:hover::after {
-  width: 100%;
-}
+.nav-link:hover::after { width: 100%; }
 
-/* ── Skill card hover glow ───────────────────────────────────────────── */
+/* ── Skill card ────────────────────────────────────────────────────────── */
 .skill-card {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.skill-card:hover {
-  transform: translateY(-3px);
-}
+.skill-card:hover { transform: translateY(-4px); }
 
-/* ── LC row hover ────────────────────────────────────────────────────── */
+/* ── LC row ────────────────────────────────────────────────────────────── */
 .lc-row-item {
   transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.lc-row-item:hover {
-  transform: translateX(2px);
-}
+.lc-row-item:hover { transform: translateX(3px); }
 
-/* ── Glass surface utility ───────────────────────────────────────────── */
+/* ── Glass surface ─────────────────────────────────────────────────────── */
 .glass-surface {
-  background: rgba(19, 13, 34, 0.6);
-  border: 1px solid rgba(45, 31, 78, 0.45);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(9, 6, 20, 0.7);
+  border: 1px solid rgba(34, 23, 64, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
-/* ── Stat bar base ───────────────────────────────────────────────────── */
+/* ── Stat bar ──────────────────────────────────────────────────────────── */
 .stat-bar-track {
-  background: rgba(45, 31, 78, 0.25);
+  background: rgba(34, 23, 64, 0.3);
   border-radius: 9999px;
   overflow: hidden;
-  height: 3px;
+  height: 2px;
 }
 .stat-bar-fill {
   height: 100%;
   border-radius: 9999px;
   background: linear-gradient(to right, var(--color-purple), var(--color-lightning));
-  transition: width 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   transform-origin: left center;
+}
+
+/* ── Ticker tape ───────────────────────────────────────────────────────── */
+.ticker-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-track {
+  display: inline-flex;
+  animation: ticker 28s linear infinite;
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+}
+
+/* ── Editorial number ──────────────────────────────────────────────────── */
+.editorial-number {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 12vw, 10rem);
+  font-weight: 300;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: var(--color-text-dim);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Hairline divider ──────────────────────────────────────────────────── */
+.hairline {
+  height: 1px;
+  background: var(--color-border-subtle);
+}
+
+/* ── Hover row ─────────────────────────────────────────────────────────── */
+.hover-row {
+  transition: background 0.2s ease, padding-left 0.2s ease;
+}
+.hover-row:hover {
+  background: rgba(34, 23, 64, 0.25);
+  padding-left: 1.25rem;
 }

@@ -3,12 +3,12 @@ import { ref, onMounted } from 'vue'
 import { kafka } from '../data/kafka.js'
 import { animate, stagger } from 'animejs'
 
-const BASE        = import.meta.env.BASE_URL.replace(/\/$/, '')
-const el          = ref(null)
-const imgOk       = ref(false)
-const barsIn      = ref(false)
+const BASE         = import.meta.env.BASE_URL.replace(/\/$/, '')
+const el           = ref(null)
+const imgOk        = ref(false)
+const barsIn       = ref(false)
 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-const statMax     = { hp: 1500, atk: 900, def: 600, spd: 130 }
+const statMax      = { hp: 1500, atk: 900, def: 600, spd: 130 }
 
 function barWidth(key, val) {
   return Math.min((val / (statMax[key.toLowerCase()] ?? 1000)) * 100, 100)
@@ -20,131 +20,101 @@ onMounted(() => {
     barsIn.value = true
     if (!prefersReduced) {
       requestAnimationFrame(() => {
-        animate('.profile-photo-col', {
-          opacity: [0, 1], translateX: [-36, 0], duration: 950, ease: 'outExpo',
-        })
-        animate('.profile-lore', {
-          opacity: [0, 1], translateY: [24, 0], duration: 750, ease: 'outQuart', delay: 120,
-        })
-        animate('.profile-quote', {
-          opacity: [0, 1], translateY: [16, 0], duration: 650, ease: 'outQuart', delay: 300,
-        })
-        animate('.profile-stat-row', {
-          opacity: [0, 1], translateX: [14, 0], duration: 520,
-          delay: stagger(65, { start: 380 }), ease: 'outCubic',
-        })
-        animate('.profile-info-row', {
-          opacity: [0, 1], translateX: [10, 0], duration: 460,
-          delay: stagger(55, { start: 660 }), ease: 'outCubic',
-        })
-        animate('.profile-tag', {
-          opacity: [0, 1], translateY: [10, 0], duration: 370,
-          delay: stagger(38, { start: 860 }), ease: 'outCubic',
-        })
+        animate('.prof-label', { opacity: [0, 1], translateY: [10, 0], duration: 500, ease: 'outQuart' })
+        animate('.prof-photo', { opacity: [0, 1], translateX: [-28, 0], duration: 900, ease: 'outExpo', delay: 80 })
+        animate('.prof-lore',  { opacity: [0, 1], translateY: [20, 0], duration: 700, ease: 'outQuart', delay: 200 })
+        animate('.prof-quote', { opacity: [0, 1], translateY: [14, 0], duration: 600, ease: 'outQuart', delay: 380 })
+        animate('.prof-stat',  { opacity: [0, 1], translateX: [12, 0], duration: 480, delay: stagger(60, { start: 500 }), ease: 'outCubic' })
+        animate('.prof-info',  { opacity: [0, 1], translateX: [10, 0], duration: 420, delay: stagger(50, { start: 720 }), ease: 'outCubic' })
+        animate('.prof-tag',   { opacity: [0, 1], translateY: [8, 0],  duration: 340, delay: stagger(35, { start: 920 }), ease: 'outCubic' })
       })
     }
     io.disconnect()
-  }, { threshold: 0.02 })
+  }, { threshold: 0.03 })
   if (el.value) io.observe(el.value)
 })
 </script>
 
 <template>
-  <section id="profile" ref="el" class="relative overflow-hidden" style="background:var(--color-deep);">
-    <!-- Top divider -->
-    <div class="h-px" style="background:linear-gradient(to right,transparent,rgba(124,58,237,.14),transparent);" />
+  <section id="profile" ref="el" class="relative overflow-hidden"
+           style="background:var(--color-void);">
+
+    <!-- Top hairline -->
+    <div class="hairline" />
 
     <div class="max-w-7xl mx-auto">
-      <div class="grid lg:grid-cols-[420px_1fr] xl:grid-cols-[480px_1fr]">
+      <div class="grid lg:grid-cols-[1fr_1.6fr]">
 
-        <!-- Photo column -->
-        <div
-          class="profile-photo-col relative overflow-hidden anim-hidden-x"
-          style="aspect-ratio:902/1260;min-height:420px;max-height:88vh;"
-        >
+        <!-- ── Photo column ─────────────────────────────────────── -->
+        <div class="prof-photo anim-hidden relative overflow-hidden"
+             style="min-height:480px;background:var(--color-deep);">
           <img
-            :src="`${BASE}/assets/kafka/kafka-6.jpg`"
-            alt="Kafka character art"
-            width="480"
-            height="672"
+            v-if="imgOk || true"
+            :src="`${BASE}/assets/kafka/kafka-2.jpg`"
+            alt="Kafka character portrait"
+            width="640" height="900"
             loading="lazy"
+            class="absolute inset-0 w-full h-full object-cover object-top"
+            style="opacity:.85;"
             @load="imgOk = true"
-            class="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700"
-            :class="imgOk ? 'opacity-100' : 'opacity-0'"
-            style="filter:brightness(.62) saturate(.88);"
           />
-          <!-- right fade -->
-          <div class="absolute inset-0"
-               style="background:linear-gradient(to right,transparent 52%,#06030f 100%);" />
-          <!-- bottom fade -->
-          <div class="absolute inset-0"
-               style="background:linear-gradient(to top,#06030f 0%,transparent 30%);" />
-
-          <!-- Overlay identity -->
-          <div class="absolute bottom-0 left-0 right-0 p-8 lg:p-10">
-            <h2
-              class="font-semibold leading-none mb-2"
-              style="font-family:'Cormorant Garamond',Georgia,serif;
-                     font-size:clamp(2rem,3.8vw,3rem);
-                     letter-spacing:-.03em;
-                     color:var(--color-text-primary);"
-            >{{ kafka.name }}</h2>
-            <p class="text-[10px] tracking-[.4em] uppercase font-mono"
-               style="color:var(--color-text-dim);">
-              {{ kafka.faction }} &middot; {{ kafka.path }}
-            </p>
+          <!-- Bottom gradient -->
+          <div class="absolute bottom-0 inset-x-0 h-40 pointer-events-none"
+               style="background:linear-gradient(to top,var(--color-void) 0%,transparent 100%);" />
+          <!-- Section label overlaid -->
+          <div class="absolute bottom-8 left-8">
+            <p class="prof-label anim-hidden text-[8px] font-mono tracking-[.5em] uppercase"
+               style="color:var(--color-text-dim);">01 &nbsp;/&nbsp; Character</p>
           </div>
         </div>
 
-        <!-- Right content -->
-        <div class="px-8 py-16 lg:px-14 lg:py-20 xl:px-16 flex flex-col gap-14">
+        <!-- ── Content column ────────────────────────────────────── -->
+        <div class="px-8 md:px-12 xl:px-16 py-16 md:py-20 flex flex-col gap-10">
 
-          <!-- Lore -->
-          <div class="profile-lore anim-hidden">
-            <p class="text-[9px] tracking-[.52em] uppercase font-mono mb-5"
+          <!-- Header -->
+          <div class="prof-lore anim-hidden">
+            <p class="text-[8px] font-mono tracking-[.5em] uppercase mb-4"
                style="color:var(--color-text-dim);">Background</p>
-            <p class="leading-[1.8] text-[14px]" style="color:var(--color-text-secondary);max-width:54ch;">
-              {{ kafka.description }}
+            <h2 class="mb-5 leading-none"
+                style="font-family:var(--font-display);font-size:clamp(2.4rem,5vw,3.5rem);font-weight:300;letter-spacing:-0.025em;color:var(--color-text-primary);">
+              Kafka
+            </h2>
+            <p class="text-[13px] leading-[1.75] max-w-lg"
+               style="color:var(--color-text-secondary);">
+              A member of the Stellaron Hunters known for her calm demeanor and
+              mysterious past. Her very name sends shivers through the cosmos — a
+              predator who moves in silence, strikes with precision, and disappears
+              before her prey even knows she was there.
             </p>
           </div>
 
           <!-- Quote -->
-          <div class="profile-quote anim-hidden">
-            <blockquote
-              class="border-l-2 pl-5 leading-relaxed"
-              style="border-color:var(--color-purple);
-                     font-family:'Cormorant Garamond',Georgia,serif;
-                     font-style:italic;
-                     font-size:clamp(1rem,1.6vw,1.15rem);
-                     color:var(--color-text-secondary);"
-            >{{ kafka.quote }}</blockquote>
-          </div>
+          <blockquote class="prof-quote anim-hidden border-l-2 pl-5"
+                      style="border-color:rgba(124,58,237,.4);">
+            <p class="text-[13px] leading-[1.7] italic"
+               style="color:var(--color-text-muted);">"The stars don't care about your feelings. Neither do I."</p>
+          </blockquote>
 
           <!-- Base stats -->
           <div>
-            <p class="text-[9px] tracking-[.52em] uppercase font-mono mb-6"
+            <p class="text-[8px] font-mono tracking-[.5em] uppercase mb-5"
                style="color:var(--color-text-dim);">Base Stats</p>
-            <div class="flex flex-col gap-5">
+            <div class="grid grid-cols-2 gap-x-8 gap-y-5">
               <div
-                v-for="(val, key) in kafka.stats"
-                :key="key"
-                class="profile-stat-row anim-hidden-x"
+                v-for="stat in kafka.baseStats"
+                :key="stat.key"
+                class="prof-stat anim-hidden"
               >
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-[10px] tracking-[.32em] uppercase font-mono"
-                        style="color:var(--color-text-dim);">{{ key.toUpperCase() }}</span>
-                  <span class="text-[13px] font-mono font-medium"
-                        style="color:var(--color-text-secondary);">{{ val }}</span>
+                <div class="flex justify-between items-baseline mb-2">
+                  <span class="text-[9px] font-mono tracking-[.3em] uppercase"
+                        style="color:var(--color-text-dim);">{{ stat.key }}</span>
+                  <span class="text-[13px] font-mono"
+                        style="color:var(--color-text-primary);">{{ stat.value }}</span>
                 </div>
                 <div class="stat-bar-track">
                   <div
                     class="stat-bar-fill"
-                    :style="{
-                      width: barsIn ? `${barWidth(key, val)}%` : '0%',
-                      transitionDelay: barsIn
-                        ? `${Object.keys(kafka.stats).indexOf(key) * 120 + 400}ms`
-                        : '0ms',
-                    }"
+                    :style="{ width: barsIn ? barWidth(stat.key, stat.value) + '%' : '0%' }"
                   />
                 </div>
               </div>
@@ -152,44 +122,40 @@ onMounted(() => {
           </div>
 
           <!-- Info rows -->
+          <div class="hairline" />
           <div>
-            <p class="text-[9px] tracking-[.52em] uppercase font-mono mb-5"
+            <p class="text-[8px] font-mono tracking-[.5em] uppercase mb-5"
                style="color:var(--color-text-dim);">Info</p>
-            <div>
+            <div class="flex flex-col">
               <div
-                v-for="info in [
-                  { label: 'Voice (JP)',    value: 'Shizuka Itou'             },
-                  { label: 'Role',          value: 'DoT DPS / Enabler'        },
-                  { label: 'Signature LC',  value: 'Patience Is All You Need' },
-                  { label: 'Core Mechanic', value: 'DoT Detonation'           },
-                ]"
+                v-for="info in kafka.info"
                 :key="info.label"
-                class="profile-info-row anim-hidden-x flex items-start justify-between
-                       py-4 gap-6 border-b last:border-0"
-                style="border-color:rgba(26,16,48,.8);"
+                class="prof-info anim-hidden hover-row flex justify-between items-center
+                       py-3 px-0 transition-all duration-200 cursor-default"
+                style="border-bottom:1px solid rgba(34,23,64,.45);"
               >
-                <span class="text-[9px] text-(--color-text-dim) tracking-[.4em] uppercase font-mono flex-shrink-0">
-                  {{ info.label }}
-                </span>
-                <span class="text-[12px] text-(--color-text-secondary) text-right font-mono">
-                  {{ info.value }}
-                </span>
+                <span class="text-[10px] font-mono tracking-[.25em] uppercase"
+                      style="color:var(--color-text-dim);">{{ info.label }}</span>
+                <span class="text-[12px] font-mono"
+                      style="color:var(--color-text-secondary);">{{ info.value }}</span>
               </div>
             </div>
           </div>
 
           <!-- Personality tags -->
           <div>
-            <p class="text-[9px] tracking-[.52em] uppercase font-mono mb-5"
+            <p class="text-[8px] font-mono tracking-[.5em] uppercase mb-4"
                style="color:var(--color-text-dim);">Personality</p>
-            <div class="flex flex-wrap gap-x-5 gap-y-3">
+            <div class="flex flex-wrap gap-x-4 gap-y-2">
               <span
                 v-for="t in ['Tenang','Manipulatif','Elegan','Sulit Ditebak','Cerdas','Playful']"
                 :key="t"
-                class="profile-tag anim-hidden text-[12px] font-mono tracking-wide
-                       hover:text-(--color-purple-glow) transition-colors duration-250 cursor-default
-                       border-b border-transparent hover:border-(--color-border) pb-px"
+                class="prof-tag anim-hidden text-[10px] font-mono tracking-[.2em] uppercase
+                       cursor-default transition-colors duration-200
+                       border-b border-transparent pb-px"
                 style="color:var(--color-text-muted);"
+                @mouseenter="(e) => { e.target.style.color = 'var(--color-text-primary)'; e.target.style.borderBottomColor = 'rgba(124,58,237,.4)'; }"
+                @mouseleave="(e) => { e.target.style.color = 'var(--color-text-muted)'; e.target.style.borderBottomColor = 'transparent'; }"
               >{{ t }}</span>
             </div>
           </div>
@@ -197,5 +163,8 @@ onMounted(() => {
         </div>
       </div>
     </div>
+
+    <!-- Bottom hairline -->
+    <div class="hairline" />
   </section>
 </template>
