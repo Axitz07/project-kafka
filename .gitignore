@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 graphify-out/
+
+# Claude / Kiro local files
+.claude/
