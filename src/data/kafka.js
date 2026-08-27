@@ -54,19 +54,31 @@ export const kafka = {
       rarity: 5,
       recommended: true,
       note: 'Best in slot — massively amplifies DoT output',
+      image: 'lc-patience.jpg',
     },
     {
       name: 'In the Name of the World',
       rarity: 5,
       recommended: false,
       note: 'Great for teams with debuffers',
+      image: null,
     },
     {
       name: 'Good Night and Sleep Well',
       rarity: 4,
       recommended: false,
       note: 'F2P-friendly, strong DoT support',
+      image: null,
     },
+  ],
+
+  eidolons: [
+    { id: 1, name: 'Caressing Moonlight',   desc: 'Basic ATK deals extra Lightning DMG equal to 40% ATK when hitting Shocked enemies.' },
+    { id: 2, name: 'Twilight Trill',         desc: 'Shock DoT duration +1 turn. Enemies affected by Kafka\'s Shock take 15% more DoT damage.' },
+    { id: 3, name: 'Shining Bright',         desc: 'Skill Lv.+2 (max 15). Basic ATK Lv.+1 (max 10).' },
+    { id: 4, name: 'Slash of the Ten',       desc: 'If enemy has 3+ DoT debuffs, follow-up attack DMG +30%.' },
+    { id: 5, name: 'Inevitable Outcome',     desc: 'Ultimate Lv.+2 (max 15). Talent Lv.+2 (max 15).' },
+    { id: 6, name: 'Pantheon of Desire',     desc: 'After Ultimate, Kafka\'s next Skill ignores 20% DEF of target.' },
   ],
 
   relics: [

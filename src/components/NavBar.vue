@@ -25,8 +25,9 @@ function openMenu() {
 function closeMenu() { isOpen.value = false }
 
 const links = [
-  { href: '#profile', label: 'Character' },
-  { href: '#skills',  label: 'Build Guide' },
+  { href: '#profile',  label: 'Character' },
+  { href: '#skills',   label: 'Build Guide' },
+  { href: '#eidolons', label: 'Eidolons' },
 ]
 </script>
 

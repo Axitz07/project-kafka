@@ -4,6 +4,7 @@ import { kafka } from '../data/kafka.js'
 import { animate, stagger } from 'animejs'
 import { Zap, Swords, Star, Sparkles, AlertTriangle } from 'lucide-vue-next'
 
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
 const el           = ref(null)
 const activeLc     = ref(0)
 const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -65,7 +66,7 @@ onMounted(() => {
 
     <div class="max-w-7xl mx-auto px-8 md:px-12 xl:px-16 py-20 md:py-28">
 
-      <!-- ── Section header ──────────────────────────────────────── -->
+      <!-- Section header -->
       <div class="sk-header anim-hidden flex items-end justify-between mb-16 md:mb-20">
         <div>
           <p class="text-[11px] font-mono tracking-[.5em] uppercase mb-3"
@@ -79,12 +80,12 @@ onMounted(() => {
            style="color:var(--color-text-dim);">DoT amplifier. Every action is to maximize detonation.</p>
       </div>
 
-      <!-- ── Skill cards ─────────────────────────────────────────── -->
+      <!-- Skill cards -->
       <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-3 mb-20">
         <div
           v-for="skill in kafka.skills"
           :key="skill.name"
-          class="sk-card anim-hidden skill-card p-6 cursor-default"
+          class="sk-card anim-hidden p-6"
           :style="{
             background: skillColor[skill.type]?.bg ?? 'rgba(15,10,30,.6)',
             border: `1px solid ${skillColor[skill.type]?.border ?? 'rgba(34,23,64,.5)'}`,
@@ -109,7 +110,7 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- ── Two column: rotation + stats ───────────────────────── -->
+      <!-- Combat rotation + stat priority -->
       <div class="grid md:grid-cols-2 gap-12 mb-20">
 
         <!-- Combat rotation -->
@@ -147,14 +148,16 @@ onMounted(() => {
               <div>
                 <p class="text-[15px] font-mono mb-1"
                    style="color:var(--color-text-primary);">{{ s.stat }}</p>
-                <p class="text-[13px]" style="color:var(--color-text-muted);">{{ s.note }}</p>
+                <p class="text-[13px]"
+                   style="color:var(--color-text-muted);">{{ s.note }}</p>
               </div>
             </div>
           </div>
         </div>
+
       </div>
 
-      <!-- ── Light cones ─────────────────────────────────────────── -->
+      <!-- Light cones -->
       <div class="mb-20">
         <p class="text-[11px] font-mono tracking-[.5em] uppercase mb-7"
            style="color:var(--color-text-dim);">Light Cones</p>
@@ -164,8 +167,7 @@ onMounted(() => {
           <button
             v-for="(lc, i) in kafka.lightCones"
             :key="lc.name"
-            class="text-[11px] font-mono tracking-[.25em] uppercase px-4 py-2
-                   transition-all duration-200"
+            class="text-[11px] font-mono tracking-[.25em] uppercase px-4 py-2 transition-all duration-200"
             :style="activeLc === i
               ? 'background:rgba(124,58,237,.15);color:var(--color-purple-glow);border:1px solid rgba(124,58,237,.3);'
               : 'color:var(--color-text-dim);border:1px solid rgba(34,23,64,.4);background:transparent;'"
@@ -179,31 +181,51 @@ onMounted(() => {
           class="sk-lc p-6 md:p-8"
           style="background:rgba(15,10,30,.5);border:1px solid rgba(34,23,64,.5);"
         >
-          <div class="flex items-start justify-between gap-6 mb-4">
-            <div>
-              <p class="text-[11px] font-mono tracking-[.4em] uppercase mb-2"
-                 style="color:var(--color-text-dim);">
-                {{ kafka.lightCones[activeLc].rarity }}★ Light Cone
-              </p>
-              <h3 class="text-[20px] md:text-[22px]"
-                  style="font-family:var(--font-display);letter-spacing:-.01em;color:var(--color-text-primary);">
-                {{ kafka.lightCones[activeLc].name }}
-              </h3>
+          <div class="flex items-start gap-6 mb-4">
+            <!-- LC image -->
+            <div
+              v-if="kafka.lightCones[activeLc].image"
+              class="flex-shrink-0 overflow-hidden"
+              style="width:80px;height:120px;border:1px solid rgba(124,58,237,.2);background:rgba(9,6,20,.8);"
+            >
+              <img
+                :src="`${BASE}/assets/kafka/lightcones/${kafka.lightCones[activeLc].image}`"
+                :alt="kafka.lightCones[activeLc].name"
+                class="w-full h-full object-cover object-top"
+                loading="lazy"
+                style="opacity:.9;"
+                @error="(ev) => ev.target.closest('div').style.display='none'"
+              />
             </div>
-            <span
-              v-if="activeLc === 0"
-              class="text-[10px] font-mono tracking-[.3em] uppercase px-3 py-1.5 flex-shrink-0"
-              style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);color:var(--color-gold);"
-            >Best in slot</span>
+            <!-- LC text -->
+            <div class="flex-1 min-w-0">
+              <div class="flex items-start justify-between gap-4 mb-3">
+                <div>
+                  <p class="text-[11px] font-mono tracking-[.4em] uppercase mb-2"
+                     style="color:var(--color-text-dim);">
+                    {{ kafka.lightCones[activeLc].rarity }}★ Light Cone
+                  </p>
+                  <h3 class="text-[20px] md:text-[22px]"
+                      style="font-family:var(--font-display);letter-spacing:-.01em;color:var(--color-text-primary);">
+                    {{ kafka.lightCones[activeLc].name }}
+                  </h3>
+                </div>
+                <span
+                  v-if="activeLc === 0"
+                  class="text-[10px] font-mono tracking-[.3em] uppercase px-3 py-1.5 flex-shrink-0"
+                  style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);color:var(--color-gold);"
+                >Best in slot</span>
+              </div>
+              <p class="text-[14px] leading-[1.75]"
+                 style="color:var(--color-text-secondary);">
+                {{ kafka.lightCones[activeLc].note }}
+              </p>
+            </div>
           </div>
-          <p class="text-[14px] leading-[1.75]"
-             style="color:var(--color-text-secondary);">
-            {{ kafka.lightCones[activeLc].reason }}
-          </p>
         </div>
       </div>
 
-      <!-- ── Mistakes + Relics ───────────────────────────────────── -->
+      <!-- Common mistakes + relics -->
       <div class="grid md:grid-cols-2 gap-12">
 
         <!-- Common mistakes -->
@@ -237,8 +259,7 @@ onMounted(() => {
             <div
               v-for="relic in kafka.relics"
               :key="relic.set"
-              class="sk-relic anim-hidden flex items-start gap-5 p-4
-                     transition-all duration-250"
+              class="sk-relic anim-hidden flex items-start gap-5 p-4 transition-all duration-250"
               style="border:1px solid rgba(34,23,64,.45);"
               @mouseenter="(e) => (e.currentTarget.style.borderColor = 'rgba(124,58,237,.3)')"
               @mouseleave="(e) => (e.currentTarget.style.borderColor = 'rgba(34,23,64,.45)')"
@@ -258,7 +279,6 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- Bottom hairline -->
     <div class="hairline" />
   </section>
 </template>
