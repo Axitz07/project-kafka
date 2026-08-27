@@ -18,7 +18,7 @@ const eidolons = [
 
 const N = eidolons.length
 const BASE_DEG = 360 / N
-const ORBIT_R  = 190   // px
+const ORBIT_R  = 230   // px — wider orbit
 const SPEED    = 16    // deg/sec
 
 // Continuous orbit angle driven by rAF
@@ -155,19 +155,19 @@ onUnmounted(() => {
       </div>
 
       <!-- Orbit + info -->
-      <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
+      <div class="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-24">
 
         <!-- Orbit sphere -->
-        <div class="eid-orbit anim-hidden relative flex-shrink-0"
-             style="width:440px;height:320px;max-width:100%;">
+        <div class="eid-orbit anim-hidden relative flex-shrink-0 mx-auto"
+             style="width:540px;height:380px;max-width:100%;">
 
           <!-- Ambient glow -->
           <div class="absolute inset-0 pointer-events-none"
-               style="background:radial-gradient(ellipse 55% 38% at 50% 58%,rgba(124,58,237,.1) 0%,transparent 70%);" />
+               style="background:radial-gradient(ellipse 60% 42% at 50% 58%,rgba(124,58,237,.12) 0%,transparent 70%);" />
 
           <!-- Ellipse guide ring -->
           <div class="absolute pointer-events-none"
-               style="left:50%;top:50%;width:390px;height:140px;transform:translate(-50%,-50%);border:1px solid rgba(124,58,237,.07);border-radius:50%;" />
+               style="left:50%;top:50%;width:470px;height:170px;transform:translate(-50%,-50%);border:1px solid rgba(124,58,237,.07);border-radius:50%;" />
 
           <!-- Eidolon nodes -->
           <div
