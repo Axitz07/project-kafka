@@ -68,10 +68,10 @@ onMounted(() => {
       <!-- ── Section header ──────────────────────────────────────── -->
       <div class="sk-header anim-hidden flex items-end justify-between mb-16 md:mb-20">
         <div>
-          <p class="text-[8px] font-mono tracking-[.5em] uppercase mb-3"
+          <p class="text-[11px] font-mono tracking-[.5em] uppercase mb-3"
              style="color:var(--color-text-dim);">02 &nbsp;/&nbsp; Build Guide</p>
           <h2 class="leading-none"
-              style="font-family:var(--font-display);font-size:clamp(2.4rem,5vw,3.5rem);font-weight:300;letter-spacing:-0.025em;color:var(--color-text-primary);">
+              style="font-family:var(--font-display);font-size:clamp(2.8rem,5vw,4rem);font-weight:300;letter-spacing:-0.025em;color:var(--color-text-primary);">
             Kit & Mechanics
           </h2>
         </div>
@@ -97,14 +97,14 @@ onMounted(() => {
               :stroke-width="1.5"
               :style="{ color: skillColor[skill.type]?.text ?? 'var(--color-text-secondary)' }"
             />
-            <span class="text-[8px] font-mono tracking-[.35em] uppercase"
+            <span class="text-[10px] font-mono tracking-[.35em] uppercase"
                   :style="{ color: skillColor[skill.type]?.text ?? 'var(--color-text-secondary)' }">
               {{ skill.type }}
             </span>
           </div>
-          <h3 class="text-[14px] mb-3 leading-snug"
+          <h3 class="text-[16px] mb-3 leading-snug"
               style="color:var(--color-text-primary);">{{ skill.name }}</h3>
-          <p class="text-[12px] leading-[1.7]"
+          <p class="text-[14px] leading-[1.7]"
              style="color:var(--color-text-muted);">{{ skill.description }}</p>
         </div>
       </div>
@@ -114,7 +114,7 @@ onMounted(() => {
 
         <!-- Combat rotation -->
         <div>
-          <p class="text-[8px] font-mono tracking-[.5em] uppercase mb-7"
+          <p class="text-[11px] font-mono tracking-[.5em] uppercase mb-7"
              style="color:var(--color-text-dim);">Combat Rotation</p>
           <div class="flex flex-col">
             <div
@@ -123,9 +123,9 @@ onMounted(() => {
               class="sk-step anim-hidden flex items-start gap-5 py-4 border-b"
               style="border-color:rgba(34,23,64,.45);"
             >
-              <span class="text-[9px] font-mono w-5 flex-shrink-0 pt-0.5"
+              <span class="text-[11px] font-mono w-5 flex-shrink-0 pt-0.5"
                     style="color:var(--color-text-dim);">{{ String(i + 1).padStart(2, '0') }}</span>
-              <p class="text-[12px] leading-[1.7]"
+              <p class="text-[14px] leading-[1.7]"
                  style="color:var(--color-text-secondary);">{{ step }}</p>
             </div>
           </div>
@@ -133,7 +133,7 @@ onMounted(() => {
 
         <!-- Stat priority -->
         <div>
-          <p class="text-[8px] font-mono tracking-[.5em] uppercase mb-7"
+          <p class="text-[11px] font-mono tracking-[.5em] uppercase mb-7"
              style="color:var(--color-text-dim);">Stat Priority</p>
           <div class="flex flex-col gap-3">
             <div
@@ -142,12 +142,12 @@ onMounted(() => {
               class="sk-stat anim-hidden flex items-start gap-5 p-4"
               style="border:1px solid rgba(34,23,64,.45);"
             >
-              <span class="text-[9px] font-mono w-5 flex-shrink-0 pt-0.5"
+              <span class="text-[11px] font-mono w-5 flex-shrink-0 pt-0.5"
                     style="color:var(--color-text-dim);">{{ String(i + 1).padStart(2, '0') }}</span>
               <div>
-                <p class="text-[13px] font-mono mb-1"
+                <p class="text-[15px] font-mono mb-1"
                    style="color:var(--color-text-primary);">{{ s.stat }}</p>
-                <p class="text-[11px]" style="color:var(--color-text-muted);">{{ s.note }}</p>
+                <p class="text-[13px]" style="color:var(--color-text-muted);">{{ s.note }}</p>
               </div>
             </div>
           </div>
@@ -156,7 +156,7 @@ onMounted(() => {
 
       <!-- ── Light cones ─────────────────────────────────────────── -->
       <div class="mb-20">
-        <p class="text-[8px] font-mono tracking-[.5em] uppercase mb-7"
+        <p class="text-[11px] font-mono tracking-[.5em] uppercase mb-7"
            style="color:var(--color-text-dim);">Light Cones</p>
 
         <!-- LC tabs -->
@@ -164,7 +164,7 @@ onMounted(() => {
           <button
             v-for="(lc, i) in kafka.lightCones"
             :key="lc.name"
-            class="text-[9px] font-mono tracking-[.25em] uppercase px-4 py-2
+            class="text-[11px] font-mono tracking-[.25em] uppercase px-4 py-2
                    transition-all duration-200"
             :style="activeLc === i
               ? 'background:rgba(124,58,237,.15);color:var(--color-purple-glow);border:1px solid rgba(124,58,237,.3);'
@@ -181,22 +181,22 @@ onMounted(() => {
         >
           <div class="flex items-start justify-between gap-6 mb-4">
             <div>
-              <p class="text-[8px] font-mono tracking-[.4em] uppercase mb-2"
+              <p class="text-[11px] font-mono tracking-[.4em] uppercase mb-2"
                  style="color:var(--color-text-dim);">
                 {{ kafka.lightCones[activeLc].rarity }}★ Light Cone
               </p>
-              <h3 class="text-[16px] md:text-[18px]"
+              <h3 class="text-[20px] md:text-[22px]"
                   style="font-family:var(--font-display);letter-spacing:-.01em;color:var(--color-text-primary);">
                 {{ kafka.lightCones[activeLc].name }}
               </h3>
             </div>
             <span
               v-if="activeLc === 0"
-              class="text-[8px] font-mono tracking-[.3em] uppercase px-3 py-1.5 flex-shrink-0"
+              class="text-[10px] font-mono tracking-[.3em] uppercase px-3 py-1.5 flex-shrink-0"
               style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);color:var(--color-gold);"
             >Best in slot</span>
           </div>
-          <p class="text-[12px] leading-[1.75]"
+          <p class="text-[14px] leading-[1.75]"
              style="color:var(--color-text-secondary);">
             {{ kafka.lightCones[activeLc].reason }}
           </p>
@@ -208,7 +208,7 @@ onMounted(() => {
 
         <!-- Common mistakes -->
         <div>
-          <p class="text-[8px] font-mono tracking-[.5em] uppercase mb-7"
+          <p class="text-[11px] font-mono tracking-[.5em] uppercase mb-7"
              style="color:var(--color-text-dim);">Common Mistakes</p>
           <div class="flex flex-col">
             <div
@@ -218,12 +218,12 @@ onMounted(() => {
               style="border-color:rgba(34,23,64,.4);"
             >
               <AlertTriangle
-                :size="12" :stroke-width="1.5"
+                :size="14" :stroke-width="1.5"
                 class="flex-shrink-0 mt-0.5"
                 style="color:rgba(232,121,249,.4);"
                 aria-hidden="true"
               />
-              <p class="text-[12px] leading-[1.7]"
+              <p class="text-[14px] leading-[1.7]"
                  style="color:var(--color-text-muted);">{{ m }}</p>
             </div>
           </div>
@@ -231,7 +231,7 @@ onMounted(() => {
 
         <!-- Recommended relics -->
         <div>
-          <p class="text-[8px] font-mono tracking-[.5em] uppercase mb-7"
+          <p class="text-[11px] font-mono tracking-[.5em] uppercase mb-7"
              style="color:var(--color-text-dim);">Recommended Relics</p>
           <div class="flex flex-col gap-3">
             <div
@@ -243,12 +243,12 @@ onMounted(() => {
               @mouseenter="(e) => (e.currentTarget.style.borderColor = 'rgba(124,58,237,.3)')"
               @mouseleave="(e) => (e.currentTarget.style.borderColor = 'rgba(34,23,64,.45)')"
             >
-              <span class="text-[9px] font-mono tracking-[.2em] flex-shrink-0 pt-0.5"
+              <span class="text-[11px] font-mono tracking-[.2em] flex-shrink-0 pt-0.5"
                     style="color:var(--color-purple-bright);">{{ relic.pieces }}pc</span>
               <div>
-                <h4 class="text-[12px] mb-1.5"
+                <h4 class="text-[14px] mb-1.5"
                     style="color:var(--color-text-primary);">{{ relic.set }}</h4>
-                <p class="text-[11px] leading-[1.6]"
+                <p class="text-[13px] leading-[1.6]"
                    style="color:var(--color-text-muted);">{{ relic.reason }}</p>
               </div>
             </div>

@@ -47,7 +47,7 @@ onMounted(() => {
 
         <!-- ── Photo column ─────────────────────────────────────── -->
         <div class="prof-photo anim-hidden relative overflow-hidden"
-             style="min-height:480px;background:var(--color-deep);">
+             style="min-height:640px;background:var(--color-deep);">
           <img
             v-if="imgOk || true"
             :src="`${BASE}/assets/kafka/kafka-2.jpg`"
@@ -73,13 +73,13 @@ onMounted(() => {
 
           <!-- Header -->
           <div class="prof-lore anim-hidden">
-            <p class="text-[8px] font-mono tracking-[.5em] uppercase mb-4"
+            <p class="text-[11px] font-mono tracking-[.5em] uppercase mb-4"
                style="color:var(--color-text-dim);">Background</p>
             <h2 class="mb-5 leading-none"
-                style="font-family:var(--font-display);font-size:clamp(2.4rem,5vw,3.5rem);font-weight:300;letter-spacing:-0.025em;color:var(--color-text-primary);">
+                style="font-family:var(--font-display);font-size:clamp(2.8rem,5vw,4rem);font-weight:300;letter-spacing:-0.025em;color:var(--color-text-primary);">
               Kafka
             </h2>
-            <p class="text-[13px] leading-[1.75] max-w-lg"
+            <p class="text-[15px] leading-[1.75] max-w-lg"
                style="color:var(--color-text-secondary);">
               A member of the Stellaron Hunters known for her calm demeanor and
               mysterious past. Her very name sends shivers through the cosmos — a
@@ -91,13 +91,13 @@ onMounted(() => {
           <!-- Quote -->
           <blockquote class="prof-quote anim-hidden border-l-2 pl-5"
                       style="border-color:rgba(124,58,237,.4);">
-            <p class="text-[13px] leading-[1.7] italic"
+            <p class="text-[15px] leading-[1.7] italic"
                style="color:var(--color-text-muted);">"The stars don't care about your feelings. Neither do I."</p>
           </blockquote>
 
           <!-- Base stats -->
           <div>
-            <p class="text-[8px] font-mono tracking-[.5em] uppercase mb-5"
+            <p class="text-[11px] font-mono tracking-[.5em] uppercase mb-5"
                style="color:var(--color-text-dim);">Base Stats</p>
             <div class="grid grid-cols-2 gap-x-8 gap-y-5">
               <div
@@ -106,9 +106,9 @@ onMounted(() => {
                 class="prof-stat anim-hidden"
               >
                 <div class="flex justify-between items-baseline mb-2">
-                  <span class="text-[9px] font-mono tracking-[.3em] uppercase"
+                  <span class="text-[11px] font-mono tracking-[.3em] uppercase"
                         style="color:var(--color-text-dim);">{{ stat.key }}</span>
-                  <span class="text-[13px] font-mono"
+                  <span class="text-[15px] font-mono"
                         style="color:var(--color-text-primary);">{{ stat.value }}</span>
                 </div>
                 <div class="stat-bar-track">
@@ -124,7 +124,7 @@ onMounted(() => {
           <!-- Info rows -->
           <div class="hairline" />
           <div>
-            <p class="text-[8px] font-mono tracking-[.5em] uppercase mb-5"
+            <p class="text-[11px] font-mono tracking-[.5em] uppercase mb-5"
                style="color:var(--color-text-dim);">Info</p>
             <div class="flex flex-col">
               <div
@@ -134,9 +134,9 @@ onMounted(() => {
                        py-3 px-0 transition-all duration-200 cursor-default"
                 style="border-bottom:1px solid rgba(34,23,64,.45);"
               >
-                <span class="text-[10px] font-mono tracking-[.25em] uppercase"
+                <span class="text-[12px] font-mono tracking-[.25em] uppercase"
                       style="color:var(--color-text-dim);">{{ info.label }}</span>
-                <span class="text-[12px] font-mono"
+                <span class="text-[14px] font-mono"
                       style="color:var(--color-text-secondary);">{{ info.value }}</span>
               </div>
             </div>
@@ -144,13 +144,13 @@ onMounted(() => {
 
           <!-- Personality tags -->
           <div>
-            <p class="text-[8px] font-mono tracking-[.5em] uppercase mb-4"
+            <p class="text-[11px] font-mono tracking-[.5em] uppercase mb-4"
                style="color:var(--color-text-dim);">Personality</p>
             <div class="flex flex-wrap gap-x-4 gap-y-2">
               <span
                 v-for="t in ['Tenang','Manipulatif','Elegan','Sulit Ditebak','Cerdas','Playful']"
                 :key="t"
-                class="prof-tag anim-hidden text-[10px] font-mono tracking-[.2em] uppercase
+                class="prof-tag anim-hidden text-[12px] font-mono tracking-[.2em] uppercase
                        cursor-default transition-colors duration-200
                        border-b border-transparent pb-px"
                 style="color:var(--color-text-muted);"

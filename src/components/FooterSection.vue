@@ -39,12 +39,12 @@ onMounted(() => {
         <!-- Identity -->
         <div class="ft-id anim-hidden">
           <h3 class="leading-none mb-1"
-              style="font-family:var(--font-display);font-size:2rem;font-weight:300;letter-spacing:-.025em;color:var(--color-text-primary);">
+              style="font-family:var(--font-display);font-size:2.4rem;font-weight:300;letter-spacing:-.025em;color:var(--color-text-primary);">
             {{ kafka.name }}
           </h3>
-          <p class="text-[9px] font-mono tracking-[.45em] uppercase mb-4"
+          <p class="text-[11px] font-mono tracking-[.45em] uppercase mb-4"
              style="color:var(--color-text-dim);">{{ kafka.faction }}</p>
-          <p class="text-[11px] leading-[1.7] max-w-[240px]"
+          <p class="text-[13px] leading-[1.7] max-w-[240px]"
              style="color:var(--color-text-muted);">
             Halaman dedikasi untuk {{ kafka.name }} dari Honkai: Star Rail.
             Profil karakter, analisis kit, dan panduan build.
@@ -53,14 +53,14 @@ onMounted(() => {
 
         <!-- Navigate -->
         <div>
-          <p class="ft-link anim-hidden text-[8px] font-mono tracking-[.45em] uppercase mb-5"
+          <p class="ft-link anim-hidden text-[11px] font-mono tracking-[.45em] uppercase mb-5"
              style="color:var(--color-text-dim);">Navigate</p>
           <nav class="flex flex-col gap-3">
             <a
               v-for="l in [{ href:'#hero', label:'Home' },{ href:'#profile', label:'Character' },{ href:'#skills', label:'Build' }]"
               :key="l.href"
               :href="l.href"
-              class="ft-link anim-hidden text-[11px] font-mono tracking-wide transition-colors duration-200"
+              class="ft-link anim-hidden text-[13px] font-mono tracking-wide transition-colors duration-200"
               style="color:var(--color-text-muted);"
               @mouseenter="(e) => (e.target.style.color = 'var(--color-text-secondary)')"
               @mouseleave="(e) => (e.target.style.color = 'var(--color-text-muted)')"
@@ -70,7 +70,7 @@ onMounted(() => {
 
         <!-- Quick ref -->
         <div>
-          <p class="ft-stat anim-hidden text-[8px] font-mono tracking-[.45em] uppercase mb-5"
+          <p class="ft-stat anim-hidden text-[11px] font-mono tracking-[.45em] uppercase mb-5"
              style="color:var(--color-text-dim);">Quick Ref</p>
           <div class="flex flex-col gap-3">
             <div
@@ -82,9 +82,9 @@ onMounted(() => {
               :key="item.label"
               class="ft-stat anim-hidden"
             >
-              <p class="text-[8px] font-mono tracking-[.3em] uppercase mb-0.5"
+              <p class="text-[10px] font-mono tracking-[.3em] uppercase mb-0.5"
                  style="color:var(--color-text-dim);">{{ item.label }}</p>
-              <p class="text-[11px] font-mono"
+              <p class="text-[13px] font-mono"
                  style="color:var(--color-text-secondary);">{{ item.value }}</p>
             </div>
           </div>
@@ -98,11 +98,11 @@ onMounted(() => {
                justify-between gap-3"
         style="border-top:1px solid rgba(34,23,64,.5);"
       >
-        <span class="text-[9px] font-mono tracking-widest"
+        <span class="text-[11px] font-mono tracking-widest"
               style="color:var(--color-text-dim);">
           {{ kafka.element }} &middot; {{ kafka.path }}
         </span>
-        <p class="text-[9px] font-mono" style="color:var(--color-text-dim);">
+        <p class="text-[11px] font-mono" style="color:var(--color-text-dim);">
           Honkai: Star Rail &copy; HoYoverse &mdash; Fan-made, not affiliated.
         </p>
       </div>

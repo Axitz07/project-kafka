@@ -44,11 +44,11 @@ const links = [
       <a href="#hero" class="select-none group flex items-baseline gap-2">
         <span
           class="text-(--color-text-primary) font-light tracking-widest uppercase
-                 text-[11px] font-mono group-hover:text-(--color-purple-glow)
+                 text-[13px] font-mono group-hover:text-(--color-purple-glow)
                  transition-colors duration-300"
         >KAFKA</span>
         <span
-          class="text-[9px] font-mono tracking-[.15em] opacity-40"
+          class="text-[11px] font-mono tracking-[.15em] opacity-40"
           style="color:var(--color-purple-glow);"
         >5★</span>
       </a>
@@ -59,7 +59,7 @@ const links = [
           v-for="l in links"
           :key="l.href"
           :href="l.href"
-          class="nav-link text-[10px] tracking-[.3em] uppercase font-mono
+          class="nav-link text-[12px] tracking-[.3em] uppercase font-mono
                  transition-colors duration-300"
           style="color:var(--color-text-muted);"
           @mouseenter="(e) => (e.currentTarget.style.color = 'var(--color-text-secondary)')"
